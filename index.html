@@ -17,6 +17,8 @@
 <meta name="twitter:title" content="Mujeeb Khan">
 <meta name="twitter:description" content="Work by Mujeeb Khan.">
 <meta name="twitter:image" content="https://mujeeb-k.github.io/images/og-image.png">
+<meta name="apple-mobile-web-app-title" content="Mujeeb Khan">
+<meta name="application-name" content="Mujeeb Khan">
 <link rel="canonical" href="https://mujeeb-k.github.io/">
 <meta name="robots" content="noai, noimageai">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -135,7 +137,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   text-align:center;font-size:10px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ink-3);margin-bottom:24px;
 }
-.entry h1{
+.entry h1,.page-title{
   font-family:var(--serif);font-weight:400;
   font-size:clamp(34px,4vw,54px);line-height:1.1;letter-spacing:-.015em;
   text-align:center;margin:0 auto 20px;text-wrap:balance;
@@ -235,10 +237,9 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
 
   <article class="sheet">
 
-<article class="entry" id="about"
-  data-group="About" data-title="About"
-  data-eyebrow="Mujeeb Khan">
-  <h1>About</h1>
+<article class="entry on" id="about"
+  data-group="About" data-title="About">
+  <h1>Mujeeb Khan</h1>
   <div class="hr"></div>
   <div class="doc">
     <p>I like working on software that makes complex work clearer, faster, and easier to act on. Over the last few years, I've worked on trading, quantitative research, enterprise software, and AI products.</p>
@@ -246,10 +247,10 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   </div>
 </article>
 
-<article class="entry" id="sap"
+<article class="entry" id="sap" hidden
   data-group="Work" data-title="SAP"
   data-eyebrow="Work">
-  <h1>SAP</h1>
+  <p class="page-title">SAP</p>
   <div class="hr"></div>
   <div class="doc">
     <p>I joined SAP working on Cloud ERP reporting, where much of the data lived across spreadsheets and older BI dashboards. Updates often required manually combining information from different sources, including partner metrics around retention, churn risk, feature adoption, web engagement, and SAP Community activity. I rebuilt the reporting workflow in SAP Analytics Cloud and centralized the data across more than 60 partners and three regions. The resulting dashboards were used by Sales, Services, and GTM teams to understand partner and customer activity.</p>
@@ -265,10 +266,10 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   </div>
 </article>
 
-<article class="entry" id="ryse"
+<article class="entry" id="ryse" hidden
   data-group="Work" data-title="Ryse, Inc."
   data-eyebrow="Work">
-  <h1>Ryse, Inc.</h1>
+  <p class="page-title">Ryse, Inc.</p>
   <div class="hr"></div>
   <div class="doc">
     <p>I worked on quantitative risk research for a $1.6B East African sovereign bond portfolio, starting with an Excel model for how assets move together during stressed markets. After testing it on pairs of assets, I expanded the model to the S&amp;P 500. When the initial results were not useful enough, I rebuilt the implementation in Python so it could run across arbitrary pairs and large historical datasets.</p>
@@ -295,10 +296,10 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   </div>
 </article>
 
-<article class="entry" id="blockhouse"
+<article class="entry" id="blockhouse" hidden
   data-group="Work" data-title="Blockhouse"
   data-eyebrow="Work">
-  <h1>Blockhouse</h1>
+  <p class="page-title">Blockhouse</p>
   <div class="hr"></div>
   <div class="doc">
     <p>I joined Blockhouse as one of the first interns and worked across product, engineering, and growth as the company built trading and execution tools around transaction cost analytics. I worked with the ML and engineering teams to understand what the product needed and help turn those requirements into features and interfaces.</p>
@@ -381,8 +382,12 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   function show(id){
     var t = document.getElementById(id);
     if(!t || t.className.indexOf("entry") === -1) t = home;
-    all.forEach(function(a){ a.className = "entry"; });
+    all.forEach(function(a){
+      a.className = "entry";
+      a.hidden = true;
+    });
     t.className = "entry on";
+    t.hidden = false;
 
     [].forEach.call(nav.querySelectorAll("a"), function(l){
       if(l.getAttribute("href") === "#"+t.id) l.setAttribute("aria-current","page");
