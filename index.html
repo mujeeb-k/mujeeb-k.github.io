@@ -11,8 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&family=Geist+Pixel&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -27,13 +26,21 @@
   --mocha-wash:#f6f1ec;
   --pixel:"Geist Pixel","Geist Mono",ui-monospace,monospace;
   --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Geist",ui-sans-serif,system-ui,-apple-system,sans-serif;
   --side-w:275px;
   --side-x:30px;
+  --shadow-border:
+    0 0 0 1px oklch(0 0 0 / .06),
+    0 1px 2px -1px oklch(0 0 0 / .06),
+    0 2px 4px 0 oklch(0 0 0 / .04);
 }
 
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{
+  -webkit-text-size-adjust:100%;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
 body{
   margin:0;background:var(--bg);color:var(--ink);
   font-family:var(--mono);font-size:13px;
@@ -59,19 +66,18 @@ a{color:inherit}
   font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink);margin-bottom:12px;
 }
-a.grp-h{text-decoration:none;display:block}
+a.grp-h{text-decoration:none;display:block;min-height:32px;padding:8px 0}
 a.grp-h[aria-current="page"]{color:var(--mocha)}
-.grp-h b{font-family:var(--pixel);font-weight:400;color:var(--mocha);margin-right:8px}
-.grp ul{list-style:none;margin:0;padding:0 0 0 17px}
-.grp li{margin-bottom:4px}
+.grp ul{list-style:none;margin:0;padding:0 0 0 2px}
+.grp li{margin-bottom:2px}
 .nlink{
   position:relative;display:block;text-decoration:none;
-  font-size:12.5px;line-height:1.5;color:var(--ink-2);
-  padding-left:14px;transition:color .14s ease;
+  font-size:13px;line-height:1.45;color:var(--ink-2);
+  padding:8px 0 8px 14px;transition-property:color;transition-duration:150ms;transition-timing-function:ease-out;
 }
 .nlink::before{
-  content:"\2022";position:absolute;left:0;top:0;color:var(--rule);
-  transition:color .14s ease;
+  content:"\2022";position:absolute;left:0;top:8px;color:var(--rule);
+  transition-property:color;transition-duration:150ms;transition-timing-function:ease-out;
 }
 .nlink:hover{color:var(--ink)}
 .nlink:hover::before{color:var(--ink-3)}
@@ -82,7 +88,8 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
 .elsewhere a,
 .foot-link{
   display:block;font-size:11.5px;letter-spacing:.03em;
-  color:var(--ink-2);text-decoration:none;padding:3px 0;
+  color:var(--ink-2);text-decoration:none;padding:10px 0;
+  min-height:40px;
 }
 .elsewhere a:hover,
 .foot-link:hover{color:var(--mocha)}
@@ -101,10 +108,11 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
 .crumb b{color:var(--ink);font-weight:500}
 
 .sheet{
-  width:min(945px,100%);margin:0 auto;
-  background:var(--paper);border:1px solid #e5e5e5;
-  box-shadow:0 2px 7px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.025);
-  padding:80px 90px 96px;
+  width:min(860px,100%);margin:0 auto;
+  background:var(--paper);
+  border:none;
+  box-shadow:var(--shadow-border);
+  padding:72px 80px 88px;
   min-height:calc(100vh - 170px);
 }
 
@@ -116,27 +124,36 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
 }
 
 .eyebrow{
-  text-align:center;font-size:10px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ink-3);margin-bottom:24px;
+  text-align:left;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:18px;
 }
 .entry h1{
-  font-family:var(--serif);font-weight:400;
-  font-size:clamp(34px,4vw,54px);line-height:1.1;letter-spacing:-.015em;
-  text-align:center;margin:0 auto 20px;
+  font-family:var(--sans);font-weight:500;
+  font-size:clamp(32px,3.6vw,44px);line-height:1.12;letter-spacing:-.032em;
+  text-align:left;margin:0 0 22px;text-wrap:balance;
 }
-.hr{width:35px;height:1px;background:var(--mocha);margin:42px auto}
+.hr{width:28px;height:1px;background:var(--mocha);margin:0 0 36px}
 
-.doc{max-width:730px;margin:0 auto}
-.doc p{font-family:var(--serif);font-size:15px;line-height:1.85;color:#292929;margin:0 0 25px}
+.doc{max-width:640px;margin:0}
+.doc p{
+  font-family:var(--sans);font-size:16.5px;line-height:1.7;
+  letter-spacing:-.011em;color:#1a1a1a;margin:0 0 1.35em;
+  text-wrap:pretty;
+}
+.doc p:last-child{margin-bottom:0}
 .doc h2{
   font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink-3);
   margin:48px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--rule);
 }
 
-.plate{margin:38px 0}
-.plate img{width:100%;display:block;border:1px solid #ddd}
-.plate figcaption{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:10px}
+.plate{margin:36px 0}
+.plate img{
+  width:100%;display:block;border:0;
+  outline:1px solid oklch(0 0 0 / .1);outline-offset:-1px;
+}
+.doc .plate a{display:block}
+.plate figcaption{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:10px;text-wrap:pretty}
 .plate.missing img{display:none}
 .plate.missing::before{
   content:attr(data-slot);display:flex;align-items:center;justify-content:center;
@@ -161,8 +178,9 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
 .gallery .plate.missing::before{min-height:180px}
 .gallery .plate:first-child.missing::before{min-height:260px}
 .doc .gallery-cap{
-  font-family:var(--mono);font-size:9.5px;line-height:1.4;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-3);margin:0 0 38px;
+  font-family:var(--mono);font-size:10px;line-height:1.55;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);margin:8px 0 36px;
+  text-wrap:pretty;
 }
 
 .menu{display:none}
@@ -186,7 +204,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   .sheet{padding:52px 22px 64px;box-shadow:none}
   .gallery{grid-template-columns:1fr}
   .gallery .plate:first-child{grid-column:auto}
-  .hr{margin:32px auto}
+  .hr{margin:0 0 28px}
 }
 </style>
 </head>
@@ -222,9 +240,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   <div class="hr"></div>
   <div class="doc">
     <p>I like working on software that makes complex work clearer, faster, and easier to act on. Over the last few years, I've worked on trading, quantitative research, enterprise software, and AI products.</p>
-    <p>I was born and raised in Dubai and now split my time between Philadelphia and New York. On weekends, I'm usually hiking or swimming.</p>
-    <h2>Currently</h2>
-    <p>Building Geist</p>
+    <p>I was born and raised in Dubai and now split my time between Philadelphia and New York. On weekends, I'm usually hiking or swimming. Currently I'm building Geist.</p>
   </div>
 </article>
 
@@ -237,6 +253,12 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
     <p>I joined SAP working on Cloud ERP reporting, where much of the data lived across spreadsheets and older BI dashboards. Updates often required manually combining information from different sources, including partner metrics around retention, churn risk, feature adoption, web engagement, and SAP Community activity. I rebuilt the reporting workflow in SAP Analytics Cloud and centralized the data across more than 60 partners and three regions. The resulting dashboards were used by Sales, Services, and GTM teams to understand partner and customer activity.</p>
     <p>As the reporting work became more automated, I started taking on more technical projects. I worked with engineers on an internal partner-facing tool grounded in S/4HANA Cloud documentation, which was my first experience using coding agents as part of development. I used Cursor and GitHub Copilot to steer implementation and merge reviewed pull requests, and the project was later incorporated into the larger effort that became Joule for Consultants.</p>
     <p>That work gave me broader exposure across SAP and led to customer discovery and prototyping with the FDE and product teams. For a multinational pharmaceutical, I spent several sessions understanding a legacy Accounts Payable workflow running on SAP VIM, including where the data came from and where manual intervention was required. I then built a prototype for automating parts of the process through three-way matching and discrepancy handling, which was handed off to the engineering team for further development.</p>
+    <figure class="plate" data-slot="Three-way matching prototype">
+      <a href="https://github.com/mujeeb-k/AP-Three-Way-Matching-Agent" rel="noopener noreferrer">
+        <img src="images/sap-three-way-matching.png" alt="Accounts Payable three-way matching prototype">
+      </a>
+      <figcaption>Three-way matching prototype</figcaption>
+    </figure>
     <p>Alongside this work, I managed two interns who joined after me and handled the transition of the reporting work to them, and I also delivered internal enablement sessions on Joule.</p>
   </div>
 </article>
@@ -266,7 +288,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
         <img src="images/ryse-bloomberg-05.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
       </figure>
     </div>
-    <p class="gallery-cap">Bloomberg Quant Seminar Series</p>
+    <p class="gallery-cap">"Risk modeling of nonlinear assets" · Mario Pardo, Ryse Inc. · Bloomberg Quant Seminar Series, [May 2025]</p>
     <p>I also built a voice-activated trading interface and adapted it for the platform, handing the implementation to the engineering team for integration.</p>
   </div>
 </article>
@@ -279,9 +301,9 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   <div class="doc">
     <p>I joined Blockhouse as one of the first interns and worked across product, engineering, and growth as the company built trading and execution tools around transaction cost analytics. I worked with the ML and engineering teams to understand what the product needed and help turn those requirements into features and interfaces.</p>
     <p>I also conducted my own discovery with options traders, practitioners, and professors, asking how they approached trading and execution and where existing tools fell short. I used those conversations to identify opportunities and build product concepts and mockups, including an options activity interface and a tool for helping traders think about execution.</p>
-    <figure class="plate" data-slot="Backtesting tab ideas">
-      <img src="images/blockhouse-backtesting.png" alt="Backtesting tab ideas">
-      <figcaption>Backtesting tab ideas</figcaption>
+    <figure class="plate" data-slot="Execution interface">
+      <img src="images/blockhouse-backtesting.png" alt="Execution interface">
+      <figcaption>Execution interface</figcaption>
     </figure>
     <figure class="plate" data-slot="Charts">
       <img src="images/blockhouse-charts.png" alt="Charts">
@@ -311,7 +333,6 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
     mail.href = "mailto:" + u + "@" + d;
   }
 
-  function pad(n){return n<10 ? "0"+n : ""+n;}
   function esc(s){
     return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
   }
@@ -337,17 +358,17 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
     (bucket[g] = bucket[g] || []).push(a);
   });
 
-  order.forEach(function(g,i){
+  order.forEach(function(g){
     var items = bucket[g] || [];
     if(!items.length) return;
     var d = document.createElement("div");
     d.className = "grp";
     if(items.length === 1 && items[0].getAttribute("data-title") === g){
-      d.innerHTML = '<a class="grp-h" href="#'+items[0].id+'"><b>'+pad(i+1)+'</b>'+esc(g)+'</a>';
+      d.innerHTML = '<a class="grp-h" href="#'+items[0].id+'">'+esc(g)+'</a>';
       nav.appendChild(d);
       return;
     }
-    var h = '<div class="grp-h"><b>'+pad(i+1)+'</b>'+esc(g)+'</div><ul>';
+    var h = '<div class="grp-h">'+esc(g)+'</div><ul>';
     items.forEach(function(a){
       h += '<li><a class="nlink" href="#'+a.id+'">'+esc(a.getAttribute("data-title"))+'</a></li>';
     });
