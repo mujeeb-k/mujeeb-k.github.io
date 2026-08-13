@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mujeeb Khan</title>
+<meta name="description" content="Work, projects and research by Mujeeb Khan.">
+<meta name="robots" content="noai, noimageai">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; img-src 'self' data:; connect-src https://fonts.googleapis.com https://fonts.gstatic.com; base-uri 'none'; form-action 'none'">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f6f5f2;
+  --paper:#ffffff;
+  --ink:#141416;
+  --ink-2:#4d4b47;
+  --ink-3:#8b8883;
+  --rule:#e5e2db;
+  --rule-soft:#efece6;
+  --mocha:#6b4a34;
+  --mocha-wash:#f6f1ec;
+  --pixel:"Geist Pixel","Geist Mono",ui-monospace,monospace;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --side-w:275px;
+  --side-x:30px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--mono);font-size:13px;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--mocha);outline-offset:3px}
+
+.side{
+  position:fixed;top:0;left:var(--side-x);
+  width:var(--side-w);height:100vh;
+  padding:38px 22px 30px 0;
+  display:flex;flex-direction:column;
+}
+.mark{
+  font-family:var(--pixel);font-size:18px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--mocha);
+  text-decoration:none;line-height:1;display:block;
+}
+
+.nav-scroll{flex:1 1 auto;overflow-y:auto;margin-top:40px;padding-right:6px}
+.grp{margin-bottom:26px}
+.grp-h{
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:12px;
+}
+a.grp-h{text-decoration:none;display:block}
+a.grp-h[aria-current="page"]{color:var(--mocha)}
+.grp-h b{font-family:var(--pixel);font-weight:400;color:var(--mocha);margin-right:8px}
+.grp ul{list-style:none;margin:0;padding:0 0 0 17px}
+.grp li{margin-bottom:4px}
+.nlink{
+  position:relative;display:block;text-decoration:none;
+  font-size:12.5px;line-height:1.5;color:var(--ink-2);
+  padding-left:14px;transition:color .14s ease;
+}
+.nlink::before{
+  content:"\2022";position:absolute;left:0;top:0;color:var(--rule);
+  transition:color .14s ease;
+}
+.nlink:hover{color:var(--ink)}
+.nlink:hover::before{color:var(--ink-3)}
+.nlink[aria-current="page"],.nlink[aria-current="page"]::before{color:var(--mocha)}
+
+.elsewhere{padding-top:26px}
+.elsewhere-h{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:11px}
+.elsewhere a,
+.foot-link{
+  display:block;font-size:11.5px;letter-spacing:.03em;
+  color:var(--ink-2);text-decoration:none;padding:3px 0;
+}
+.elsewhere a:hover,
+.foot-link:hover{color:var(--mocha)}
+
+.main{
+  margin-left:calc(var(--side-w) + var(--side-x) + 24px);
+  margin-right:85px;
+  padding:38px 0 90px;
+  min-height:100vh;
+}
+.crumb{
+  height:36px;display:flex;align-items:center;
+  color:var(--ink-3);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+}
+.crumb .sep{margin:0 8px;color:var(--rule)}
+.crumb b{color:var(--ink);font-weight:500}
+
+.sheet{
+  width:min(945px,100%);margin:0 auto;
+  background:var(--paper);border:1px solid #e5e5e5;
+  box-shadow:0 2px 7px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.025);
+  padding:80px 90px 96px;
+  min-height:calc(100vh - 170px);
+}
+
+.entry{display:none}
+.entry.on{display:block}
+@media (prefers-reduced-motion:no-preference){
+  .entry.on{animation:rise .28s cubic-bezier(.2,.7,.3,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+}
+
+.eyebrow{
+  text-align:center;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:24px;
+}
+.entry h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(34px,4vw,54px);line-height:1.1;letter-spacing:-.015em;
+  text-align:center;margin:0 auto 20px;
+}
+.hr{width:35px;height:1px;background:var(--mocha);margin:42px auto}
+
+.doc{max-width:730px;margin:0 auto}
+.doc p{font-family:var(--serif);font-size:15px;line-height:1.85;color:#292929;margin:0 0 25px}
+.doc h2{
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3);
+  margin:48px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--rule);
+}
+
+.plate{margin:38px 0}
+.plate img{width:100%;display:block;border:1px solid #ddd}
+.plate figcaption{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:10px}
+.plate.missing img{display:none}
+.plate.missing::before{
+  content:attr(data-slot);display:flex;align-items:center;justify-content:center;
+  min-height:260px;border:1px solid #ddd;
+  background:linear-gradient(var(--mocha-wash) 1px,transparent 1px),
+             linear-gradient(90deg,var(--mocha-wash) 1px,transparent 1px);
+  background-size:25px 25px;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mocha);
+  text-align:center;padding:0 24px;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:38px 0 10px;
+}
+.gallery .plate{margin:0}
+.gallery .plate:first-child{grid-column:1 / -1}
+.gallery .plate.missing::before{min-height:180px}
+.gallery .plate:first-child.missing::before{min-height:260px}
+.doc .gallery-cap{
+  font-family:var(--mono);font-size:9.5px;line-height:1.4;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 38px;
+}
+
+.menu{display:none}
+
+@media (max-width:980px){
+  .side{
+    position:relative;top:auto;left:auto;width:100%;height:auto;
+    padding:24px 18px 16px;display:block;border-bottom:1px solid var(--rule);
+  }
+  .nav-scroll{margin-top:18px;overflow:visible;display:none}
+  .nav-scroll.on{display:block}
+  .elsewhere{padding-top:18px;display:none}
+  .elsewhere.on{display:block}
+  .menu{
+    display:inline-block;margin-top:14px;font-family:var(--mono);font-size:10px;
+    font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+    background:none;border:1px solid var(--rule);color:var(--ink-2);
+    padding:7px 12px;cursor:pointer;
+  }
+  .main{margin:0;padding:14px 14px 60px}
+  .sheet{padding:52px 22px 64px;box-shadow:none}
+  .gallery{grid-template-columns:1fr}
+  .gallery .plate:first-child{grid-column:auto}
+  .hr{margin:32px auto}
+}
+</style>
+</head>
+
+<body>
+
+<aside class="side">
+  <div>
+    <a class="mark" href="#about">Mujeeb Khan</a>
+    <button class="menu" id="menu" aria-expanded="false">Contents</button>
+  </div>
+
+  <div class="nav-scroll" id="navScroll"><nav id="nav" aria-label="Sections"></nav></div>
+
+  <div class="elsewhere" id="elsewhere">
+    <div class="elsewhere-h">Elsewhere</div>
+    <a class="foot-link" id="mail" href="#">Email</a>
+    <a class="foot-link" href="https://github.com/mujeeb-k" rel="noopener noreferrer">GitHub</a>
+    <a class="foot-link" href="https://www.linkedin.com/in/mujeeeb" rel="noopener noreferrer">LinkedIn</a>
+    <a class="foot-link" href="https://x.com/chiefjeeb" rel="noopener noreferrer">X</a>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="crumb" id="crumb"></div>
+
+  <article class="sheet">
+
+<article class="entry" id="about"
+  data-group="About" data-title="About"
+  data-eyebrow="Mujeeb Khan">
+  <h1>About</h1>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>I like working on software that makes complex work clearer, faster, and easier to act on. Over the last few years, I've worked on trading, quantitative research, enterprise software, and AI products.</p>
+    <p>I was born and raised in Dubai and now split my time between Philadelphia and New York. On weekends, I'm usually hiking or swimming.</p>
+    <h2>Currently</h2>
+    <p>Building Geist</p>
+  </div>
+</article>
+
+<article class="entry" id="sap"
+  data-group="Work" data-title="SAP"
+  data-eyebrow="Work">
+  <h1>SAP</h1>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>I joined SAP on Cloud ERP reporting. Much of the data lived across spreadsheets and older BI dashboards. Updates often required combining information from different sources by hand, including partner metrics around retention, churn risk, feature adoption, web engagement, and SAP Community activity. I rebuilt the reporting workflow in SAP Analytics Cloud and centralized the data across more than 60 partners and three regions. Sales, Services, and GTM teams used the resulting dashboards to understand partner and customer activity.</p>
+    <p>As the reporting work became more automated, I started taking on more technical projects. I worked with engineers on an internal partner-facing tool grounded in S/4HANA Cloud documentation. It was my first time using coding agents as part of development. I used Cursor and GitHub Copilot to steer implementation and merge reviewed pull requests. The project was later incorporated into the larger effort that became Joule for Consultants.</p>
+    <p>That work gave me broader exposure across SAP and led to customer discovery and prototyping with the FDE and product teams. For a multinational pharmaceutical company, I spent several sessions on a legacy Accounts Payable workflow running on SAP VIM: where the data came from, and where manual intervention was required. I then built a prototype for automating parts of the process through three-way matching and discrepancy handling, and handed it to the engineering team.</p>
+    <p>Alongside this work, I managed two interns who joined after me, handed the reporting work over to them, and delivered internal enablement sessions on Joule.</p>
+  </div>
+</article>
+
+<article class="entry" id="ryse"
+  data-group="Work" data-title="Ryse, Inc."
+  data-eyebrow="Work">
+  <h1>Ryse, Inc.</h1>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>I worked on quantitative risk research for a $1.6B East African sovereign bond portfolio, starting with an Excel model for how assets move together during stressed markets. After testing it on pairs of assets, I expanded the model to the S&amp;P 500. When the initial results were not useful enough, I rebuilt the implementation in Python so it could run across arbitrary pairs and large historical datasets.</p>
+    <p>I used the resulting system to study nonlinear dependence and tail risk across the S&amp;P 500 during several market regimes, including the dot-com crash, the 2008 financial crisis, COVID, and the 2025 tariff period. I implemented the dependence models and built the Monte Carlo simulation infrastructure in Python, then deployed the services on Azure. The research was later presented at the Bloomberg Quant Seminar Series.</p>
+    <div class="gallery">
+      <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
+        <img src="images/ryse-bloomberg-01.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
+      </figure>
+      <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
+        <img src="images/ryse-bloomberg-02.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
+      </figure>
+      <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
+        <img src="images/ryse-bloomberg-03.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
+      </figure>
+      <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
+        <img src="images/ryse-bloomberg-04.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
+      </figure>
+      <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
+        <img src="images/ryse-bloomberg-05.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
+      </figure>
+    </div>
+    <p class="gallery-cap">Bloomberg Quant Seminar Series</p>
+    <p>I also built a voice-activated trading interface and adapted it for the platform, then handed the implementation to the engineering team for integration.</p>
+  </div>
+</article>
+
+<article class="entry" id="blockhouse"
+  data-group="Work" data-title="Blockhouse"
+  data-eyebrow="Work">
+  <h1>Blockhouse</h1>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>I joined Blockhouse as one of the first interns and worked across product, engineering, and growth as the company built trading and execution tools around transaction cost analytics. I worked with the ML and engineering teams to understand what the product needed and to help turn those requirements into features and interfaces.</p>
+    <p>I also did my own discovery with options traders, practitioners, and professors, asking how they approached trading and execution and where existing tools fell short. I used those conversations to identify opportunities and build product concepts and mockups, including an options activity interface and a tool for helping traders think about execution.</p>
+    <figure class="plate" data-slot="Execution and backtesting concepts">
+      <img src="images/blockhouse-execution.png" alt="Trading execution and backtesting concepts">
+      <figcaption>Execution and backtesting concepts</figcaption>
+    </figure>
+    <figure class="plate" data-slot="Analytics dashboard concept">
+      <img src="images/blockhouse-dashboard.png" alt="Analytics dashboard concept">
+      <figcaption>Analytics dashboard concept</figcaption>
+    </figure>
+    <p>Later, I took over the marketing effort for the trading analytics platform, wrote content, and changed the team's approach to distribution by introducing formats that felt more native to trading communities. The strategy helped the platform reach more than 20 million impressions.</p>
+  </div>
+</article>
+
+<article class="entry" id="geist"
+  data-group="Projects" data-title="Geist: AI for Financial Intelligence &amp; Research"
+  data-eyebrow="Projects">
+  <h1>Geist: AI for Financial Intelligence &amp; Research</h1>
+  <div class="hr"></div>
+</article>
+
+<article class="entry" id="accounts-payable"
+  data-group="Projects" data-title="AI for Accounts Payable"
+  data-eyebrow="Projects">
+  <h1>AI for Accounts Payable</h1>
+  <div class="hr"></div>
+</article>
+
+<article class="entry" id="workforce-planning"
+  data-group="Projects" data-title="AI for Workforce Planning"
+  data-eyebrow="Projects">
+  <h1>AI for Workforce Planning</h1>
+  <div class="hr"></div>
+</article>
+
+<article class="entry" id="averroes"
+  data-group="Projects" data-title="Averroes (AI Prompt Coach)"
+  data-eyebrow="Projects">
+  <h1>Averroes (AI Prompt Coach)</h1>
+  <div class="hr"></div>
+</article>
+
+<article class="entry" id="research"
+  data-group="Research" data-title="(Coming Soon)"
+  data-eyebrow="Research">
+  <h1>Research</h1>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>Coming soon.</p>
+  </div>
+</article>
+
+  </article>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var all   = [].slice.call(document.querySelectorAll("article.entry"));
+  var home  = document.getElementById("about");
+  var nav   = document.getElementById("nav");
+  var crumb = document.getElementById("crumb");
+  var menu  = document.getElementById("menu");
+  var navS  = document.getElementById("navScroll");
+  var els   = document.getElementById("elsewhere");
+
+  var mail = document.getElementById("mail");
+  if (mail) {
+    var u = "k.mujeeb", d = "outlook.com";
+    mail.href = "mailto:" + u + "@" + d;
+  }
+
+  function pad(n){return n<10 ? "0"+n : ""+n;}
+  function esc(s){
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+  }
+
+  [].forEach.call(document.querySelectorAll(".plate img"), function(img){
+    img.addEventListener("error", function(){ img.parentNode.className += " missing"; });
+    if(img.complete && img.naturalWidth === 0) img.parentNode.className += " missing";
+  });
+
+  all.forEach(function(a){
+    var e = a.getAttribute("data-eyebrow");
+    if(!e) return;
+    var d = document.createElement("div");
+    d.className = "eyebrow";
+    d.textContent = e;
+    a.insertBefore(d, a.firstChild);
+  });
+
+  var order = ["About","Work","Projects","Research"];
+  var bucket = {};
+  [].forEach.call(document.querySelectorAll("article.entry[data-group]"), function(a){
+    var g = a.getAttribute("data-group");
+    (bucket[g] = bucket[g] || []).push(a);
+  });
+
+  order.forEach(function(g,i){
+    var items = bucket[g] || [];
+    if(!items.length) return;
+    var d = document.createElement("div");
+    d.className = "grp";
+    if(items.length === 1 && items[0].getAttribute("data-title") === g){
+      d.innerHTML = '<a class="grp-h" href="#'+items[0].id+'"><b>'+pad(i+1)+'</b>'+esc(g)+'</a>';
+      nav.appendChild(d);
+      return;
+    }
+    var h = '<div class="grp-h"><b>'+pad(i+1)+'</b>'+esc(g)+'</div><ul>';
+    items.forEach(function(a){
+      h += '<li><a class="nlink" href="#'+a.id+'">'+esc(a.getAttribute("data-title"))+'</a></li>';
+    });
+    d.innerHTML = h + "</ul>";
+    nav.appendChild(d);
+  });
+
+  function show(id){
+    var t = document.getElementById(id);
+    if(!t || t.className.indexOf("entry") === -1) t = home;
+    all.forEach(function(a){ a.className = "entry"; });
+    t.className = "entry on";
+
+    [].forEach.call(nav.querySelectorAll("a"), function(l){
+      if(l.getAttribute("href") === "#"+t.id) l.setAttribute("aria-current","page");
+      else l.removeAttribute("aria-current");
+    });
+
+    var g  = t.getAttribute("data-group");
+    var ti = t.getAttribute("data-title");
+    crumb.innerHTML = (t === home)
+      ? 'Mujeeb Khan<span class="sep">/</span><b>About</b>'
+      : 'Mujeeb Khan<span class="sep">/</span>'+esc(g)+'<span class="sep">/</span><b>'+esc(ti)+'</b>';
+
+    document.title = (t === home) ? "Mujeeb Khan" : ti + " - Mujeeb Khan";
+    window.scrollTo(0,0);
+    navS.className = "nav-scroll";
+    els.className = "elsewhere";
+    menu.setAttribute("aria-expanded","false");
+  }
+
+  window.addEventListener("hashchange", function(){ show(location.hash.slice(1)); });
+  menu.addEventListener("click", function(){
+    var open = navS.className.indexOf("on") > -1;
+    navS.className = open ? "nav-scroll" : "nav-scroll on";
+    els.className  = open ? "elsewhere"  : "elsewhere on";
+    menu.setAttribute("aria-expanded", open ? "false" : "true");
+  });
+
+  show(location.hash.slice(1) || "about");
+})();
+</script>
+</body>
+</html>
