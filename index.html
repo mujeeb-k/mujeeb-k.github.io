@@ -217,7 +217,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
 
 <aside class="side">
   <div>
-    <a class="mark" href="#about">Mujeeb Khan</a>
+    <a class="mark" href="/" id="mark">Mujeeb Khan</a>
     <button class="menu" id="menu" aria-expanded="false">Contents</button>
   </div>
 
@@ -325,6 +325,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   "use strict";
   var all   = [].slice.call(document.querySelectorAll("article.entry"));
   var home  = document.getElementById("about");
+  var mark  = document.getElementById("mark");
   var nav   = document.getElementById("nav");
   var crumb = document.getElementById("crumb");
   var menu  = document.getElementById("menu");
@@ -355,7 +356,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
     a.insertBefore(d, a.firstChild);
   });
 
-  var order = ["About","Work"];
+  var order = ["Work"];
   var bucket = {};
   [].forEach.call(document.querySelectorAll("article.entry[data-group]"), function(a){
     var g = a.getAttribute("data-group");
@@ -394,11 +395,17 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
       if(l.getAttribute("href") === "#"+t.id) l.setAttribute("aria-current","page");
       else l.removeAttribute("aria-current");
     });
+    if(t === home) mark.setAttribute("aria-current","page");
+    else mark.removeAttribute("aria-current");
+
+    if(t === home && location.hash){
+      history.replaceState(null, "", location.pathname || "/");
+    }
 
     var g  = t.getAttribute("data-group");
     var ti = t.getAttribute("data-title");
     crumb.innerHTML = (t === home)
-      ? 'Mujeeb Khan<span class="sep">/</span><b>About</b>'
+      ? '<b>Mujeeb Khan</b>'
       : 'Mujeeb Khan<span class="sep">/</span>'+esc(g)+'<span class="sep">/</span><b>'+esc(ti)+'</b>';
 
     document.title = "Mujeeb Khan";
