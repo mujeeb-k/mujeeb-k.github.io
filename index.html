@@ -183,10 +183,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
 }
 .gallery .plate{margin:0}
 .gallery .plate img{width:100%;height:280px;object-fit:cover;object-position:center 35%}
-.gallery .plate:first-child{grid-column:1 / -1}
-.gallery .plate:first-child img{height:420px}
 .gallery .plate.missing::before{min-height:180px}
-.gallery .plate:first-child.missing::before{min-height:260px}
 .doc .gallery-cap{
   font-family:var(--mono);font-size:9.5px;line-height:1.5;letter-spacing:.06em;
   color:var(--ink-3);margin:0 0 38px;
@@ -212,7 +209,6 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   .main{margin:0;padding:14px 14px 60px}
   .sheet{padding:52px 22px 64px;box-shadow:none}
   .gallery{grid-template-columns:1fr}
-  .gallery .plate:first-child{grid-column:auto}
   .hr{margin:32px auto}
 }
 </style>
@@ -313,9 +309,6 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
     <p>The implementation was incorporated into Ryse's proprietary risk software. Mario later presented the research at the Bloomberg Quant Seminar Series.</p>
     <div class="gallery">
       <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
-        <img src="images/ryse-bloomberg-01.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
-      </figure>
-      <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
         <img src="images/ryse-bloomberg-02.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
       </figure>
       <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
@@ -328,7 +321,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
         <img src="images/ryse-bloomberg-05.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
       </figure>
     </div>
-    <p class="gallery-cap">Bloomberg Quant Seminar Series</p>
+    <p class="gallery-cap">Bloomberg Quant Seminar Series | Ryse CEO Mario Pardo presenting research I conducted at Ryse on nonlinear risk and tail dependence across the S&amp;P 500</p>
     <p>I also brought a separate project into the platform. I had built a voice interface for querying trading and portfolio analytics, where models interpreted the request but did not calculate the financial result themselves. Queries were resolved against the existing analytics engine, keeping the quantitative calculation deterministic. I adapted the system for Ryse and deployed the integration on Azure.</p>
   </div>
 </article>
