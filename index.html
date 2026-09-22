@@ -248,8 +248,34 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   <div class="hr"></div>
   <div class="doc">
     <p>I build data and AI systems for financial and enterprise problems. My background spans quantitative development, enterprise applications, and applied AI.</p>
-    <p>Currently I'm building Geist for people who cover public companies. Ask what a company reported and Geist returns the figure, the fiscal period, and the exact place it came from in the SEC filing. It keeps that evidence with your research so you can return to the same view when the company reports again.</p>
+    <p>Currently I'm building <a class="text-link" href="#geist">Geist</a> for people who cover public companies. Ask what a company reported and Geist returns the figure, the fiscal period, and the exact place it came from in the SEC filing. It keeps that evidence with your research so you can return to the same view when the company reports again.</p>
     <p>I grew up in Dubai and am now based in New York. Outside work, I'm usually hiking, swimming, or somewhere near the water.</p>
+  </div>
+</article>
+
+<article class="entry" id="geist" hidden
+  data-group="Projects" data-title="Geist" data-nav="Geist (WIP)"
+  data-eyebrow="Projects">
+  <p class="page-title">Geist</p>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>Geist is a research system for people who cover public companies. It keeps the facts, evidence, and your view of a company connected as new information arrives.</p>
+    <p><a class="text-link" href="https://geist.up.railway.app/" rel="noopener noreferrer">Try Geist</a> (Work in Progress)</p>
+    <h3>Research</h3>
+    <p>Ask what a company reported and Geist returns the figure, the fiscal period, and the exact place it came from in the SEC filing.</p>
+    <p>The source is part of the answer. You can open the filing and inspect the evidence directly. If Geist cannot establish the fact from the available evidence, it refuses rather than filling in the gap.</p>
+    <h3>Memo</h3>
+    <p>Research does not end when a question is answered.</p>
+    <p>You can keep the evidence in a living memo for the company: what you believe, what supports or challenges that view, what could change your mind, and what you want to watch.</p>
+    <p>Geist does not produce a rating or make the investment decision. The memo stays with the analyst.</p>
+    <h3>New filings</h3>
+    <p>When the company reports again, you can bring the new filing back to the research you already have instead of starting from another summary.</p>
+    <p>Geist can surface evidence that supports the existing view, contradicts it, or leaves the question unresolved. Each filing becomes another piece of evidence in the same body of research.</p>
+    <h3>Why the evidence matters</h3>
+    <p>I asked Perplexity and Geist the same question about Microsoft's reported cloud revenue. They returned different answers. I assumed my system was wrong, checked the filing manually, and found that Geist had resolved the right figure.</p>
+    <p><a class="text-link" href="https://www.perplexity.ai/search/fff8296f-d749-45a3-b8dd-99c305b67c7b" rel="noopener noreferrer">The same question asked to Perplexity</a></p>
+    <p>This is because a real number from a real filing can still be the wrong answer. It can belong to a different metric, fiscal period, segment, or column in a table. A citation alone does not resolve those relationships.</p>
+    <p>Models help interpret questions, search, and communicate results, but they are not the source of truth. Geist establishes financial facts against the underlying filing and structured SEC data before returning them.</p>
   </div>
 </article>
 
@@ -328,31 +354,6 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   </div>
 </article>
 
-<article class="entry" id="geist" hidden
-  data-group="Work" data-title="Geist"
-  data-eyebrow="Work">
-  <p class="page-title">Geist</p>
-  <div class="hr"></div>
-  <div class="doc">
-    <p>Geist is a research system for people who cover public companies. It keeps the facts, evidence, and your view of a company connected as new information arrives.</p>
-    <p><a class="text-link" href="https://geist.up.railway.app/" rel="noopener noreferrer">Try Geist</a></p>
-    <h3>Research</h3>
-    <p>Ask what a company reported and Geist returns the figure, the fiscal period, and the exact place it came from in the SEC filing.</p>
-    <p>The source is part of the answer. You can open the filing and inspect the evidence directly. If Geist cannot establish the fact from the available evidence, it refuses rather than filling in the gap.</p>
-    <h3>Memo</h3>
-    <p>Research does not end when a question is answered.</p>
-    <p>You can keep the evidence in a living memo for the company: what you believe, what supports or challenges that view, what could change your mind, and what you want to watch.</p>
-    <p>Geist does not produce a rating or make the investment decision. The memo stays with the analyst.</p>
-    <h3>New filings</h3>
-    <p>When the company reports again, you can bring the new filing back to the research you already have instead of starting from another summary.</p>
-    <p>Geist can surface evidence that supports the existing view, contradicts it, or leaves the question unresolved. Each filing becomes another piece of evidence in the same body of research.</p>
-    <h3>Why the evidence matters</h3>
-    <p>I asked Perplexity and Geist the same question about Microsoft's reported cloud revenue. They returned different answers. I assumed my system was wrong, checked the filing manually, and found that Geist had resolved the right figure.</p>
-    <p><a class="text-link" href="https://www.perplexity.ai/search/fff8296f-d749-45a3-b8dd-99c305b67c7b" rel="noopener noreferrer">The same question asked to Perplexity</a></p>
-    <p>This is because a real number from a real filing can still be the wrong answer. It can belong to a different metric, fiscal period, segment, or column in a table. A citation alone does not resolve those relationships.</p>
-    <p>Models help interpret questions, search, and communicate results, but they are not the source of truth. Geist establishes financial facts against the underlying filing and structured SEC data before returning them.</p>
-  </div>
-</article>
 
   </article>
 </main>
@@ -393,7 +394,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
     a.insertBefore(d, a.firstChild);
   });
 
-  var order = ["Work"];
+  var order = ["Projects", "Work"];
   var bucket = {};
   [].forEach.call(document.querySelectorAll("article.entry[data-group]"), function(a){
     var g = a.getAttribute("data-group");
@@ -412,7 +413,7 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
     }
     var h = '<div class="grp-h">'+esc(g)+'</div><ul>';
     items.forEach(function(a){
-      h += '<li><a class="nlink" href="#'+a.id+'">'+esc(a.getAttribute("data-title"))+'</a></li>';
+      h += '<li><a class="nlink" href="#'+a.id+'">'+esc(a.getAttribute("data-nav") || a.getAttribute("data-title"))+'</a></li>';
     });
     d.innerHTML = h + "</ul>";
     nav.appendChild(d);
