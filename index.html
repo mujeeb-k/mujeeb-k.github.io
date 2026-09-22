@@ -154,6 +154,11 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   text-transform:uppercase;color:var(--ink-3);
   margin:48px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--rule);
 }
+.doc h3{
+  font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;
+  color:var(--ink-2);margin:40px 0 14px;
+}
+.doc a.text-link{color:var(--mocha);text-decoration:underline;text-underline-offset:.18em}
 
 .plate{margin:38px 0}
 .plate img{width:100%;display:block;border:1px solid #ddd}
@@ -242,9 +247,9 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   <h1>Hi, I'm Mujeeb</h1>
   <div class="hr"></div>
   <div class="doc">
-    <p>I like working on software that makes complex work clearer, faster, and easier to act on. Over the last few years, I've worked on trading, quantitative research, enterprise software, and AI products.</p>
-    <p>I was born and raised in Dubai and now split my time between Philadelphia and New York. On weekends, I'm usually hiking or at the beach swimming.</p>
-    <p>Currently I'm building Geist. It's an agent harness for financial research.</p>
+    <p>I build data and AI systems for financial and enterprise problems. My background spans quantitative development, enterprise applications, and applied AI.</p>
+    <p>Currently I'm building Geist for people who cover public companies. Ask what a company reported and Geist returns the figure, the fiscal period, and the exact place it came from in the SEC filing. It keeps that evidence with your research so you can return to the same view when the company reports again.</p>
+    <p>I grew up in Dubai and am now based in New York. Outside work, I'm usually hiking, swimming, or somewhere near the water.</p>
   </div>
 </article>
 
@@ -254,16 +259,19 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   <p class="page-title">SAP</p>
   <div class="hr"></div>
   <div class="doc">
-    <p>I joined SAP working on Cloud ERP reporting, where much of the data lived across spreadsheets and older BI dashboards. Updates often required manually combining information from different sources, including partner metrics around retention, churn risk, feature adoption, web engagement, and SAP Community activity. I rebuilt the reporting workflow in SAP Analytics Cloud and centralized the data across more than 60 partners and three regions. The resulting dashboards were used by Sales, Services, and GTM teams to understand partner and customer activity.</p>
-    <p>As the reporting work became more automated, I started taking on more technical projects. I worked with engineers on an internal partner-facing tool grounded in S/4HANA Cloud documentation, which was my first experience using coding agents as part of development. I used Cursor and GitHub Copilot to steer implementation and merge reviewed pull requests, and the project was later incorporated into the larger effort that became Joule for Consultants.</p>
-    <p>That work gave me broader exposure across SAP and led to customer discovery and prototyping with the FDE and product teams. For a multinational pharmaceutical, I spent several sessions understanding a legacy Accounts Payable workflow running on SAP VIM, including where the data came from and where manual intervention was required. I then built a prototype for automating parts of the process through three-way matching and discrepancy handling, which was handed off to the engineering team for further development.</p>
+    <p>I joined SAP working on Cloud ERP reporting that was spread across spreadsheets and older BI systems. I rebuilt the workflow in SAP Analytics Cloud, consolidating data across more than 60 partners in the Americas, EMEA, and APJ into a single reporting system used by Sales, Services, and GTM.</p>
+    <p>From there I moved into AI and application work. I built Python and SQL retrieval pipelines for an internal assistant over S/4HANA Cloud documentation and release material. That work fed into a broader internal effort that later became part of Joule for Consultants.</p>
+    <p>I also worked with SAP's FDE and product teams on an Accounts Payable problem for a multinational pharmaceutical company. Over several discovery sessions, I mapped how invoice exceptions moved through a legacy SAP VIM workflow and where investigation required manual work across systems.</p>
+    <p>I then built a prototype around three-way matching: reconciling invoice, purchase-order, and goods-receipt data, diagnosing why a match failed, and routing the next action.</p>
+    <p>The public version uses synthetic records and implements 14 discrepancy types with deterministic matching and risk logic, approval-gated actions, an audit trail, and separate boundaries for SAP and model providers. It is built with SAP CAP, TypeScript, and React.</p>
     <figure class="plate" data-slot="Three-way matching prototype">
       <a href="https://github.com/mujeeb-k/AP-Three-Way-Matching-Agent" rel="noopener noreferrer">
         <img src="images/sap-three-way-matching.png" alt="Accounts Payable three-way matching prototype">
       </a>
       <figcaption>Three-way matching prototype</figcaption>
     </figure>
-    <p>Alongside this work, I mentored two interns who joined after me and handled the transition of the reporting work to them.</p>
+    <p><a class="text-link" href="https://github.com/mujeeb-k/AP-Three-Way-Matching-Agent" rel="noopener noreferrer">View the AP three-way matching system</a></p>
+    <p>I later transitioned the reporting system to two incoming interns and helped run internal AI enablement sessions.</p>
   </div>
 </article>
 
@@ -273,8 +281,10 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   <p class="page-title">Ryse, Inc.</p>
   <div class="hr"></div>
   <div class="doc">
-    <p>I worked on quantitative risk research for a $1.6B East African sovereign bond portfolio, starting with an Excel model for how assets move together during stressed markets. After testing it on pairs of assets, I expanded the model to the S&amp;P 500. When the initial results were not useful enough, I rebuilt the implementation in Python so it could run across arbitrary pairs and large historical datasets.</p>
-    <p>I used the resulting system to study nonlinear dependence and tail risk across the S&amp;P 500 during several market regimes, including the dot-com crash, the 2008 financial crisis, COVID, and the 2025 tariff period. I implemented the dependence models and built the Monte Carlo simulation infrastructure in Python, then deployed the services on Azure. The research was later presented at the Bloomberg Quant Seminar Series.</p>
+    <p>I joined Ryse after meeting founder Mario Pardo following a quantitative finance lecture at Fordham. The first problem he gave me was a dependence model for understanding how assets behave together during stressed markets.</p>
+    <p>The original implementation operated on a small number of assets. I rebuilt the work in Python and wrote the infrastructure for fitting multiple copula families and estimating their parameters by maximum likelihood. I then generalized the system to run pairwise analysis and Monte Carlo simulations across the S&amp;P 500.</p>
+    <p>The work let us compare dependence structures across different market regimes, including the dot-com crash, the 2008 financial crisis, COVID, and the 2025 tariff period. Under stressed conditions, the results showed why Gaussian dependence assumptions could materially understate joint tail behavior.</p>
+    <p>The implementation was incorporated into Ryse's proprietary risk software. Mario later presented the research at the Bloomberg Quant Seminar Series.</p>
     <div class="gallery">
       <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
         <img src="images/ryse-bloomberg-01.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
@@ -292,8 +302,8 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
         <img src="images/ryse-bloomberg-05.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
       </figure>
     </div>
-    <p class="gallery-cap">Risk Modeling of Nonlinear Assets · Mario Pardo, Ryse Inc · Bloomberg Quant Seminar Series, May 2025</p>
-    <p>I also built a voice-activated trading interface and adapted it for the platform, handing the implementation to the engineering team for integration.</p>
+    <p class="gallery-cap">Bloomberg Quant Seminar Series</p>
+    <p>I also brought a separate project into the platform. I had built a voice interface for querying trading and portfolio analytics, where models interpreted the request but did not calculate the financial result themselves. Queries were resolved against the existing analytics engine, keeping the quantitative calculation deterministic. I adapted the system for Ryse and deployed the integration on Azure.</p>
   </div>
 </article>
 
@@ -303,17 +313,44 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   <p class="page-title">Blockhouse</p>
   <div class="hr"></div>
   <div class="doc">
-    <p>I joined Blockhouse as one of the first interns and worked across product, engineering, and growth as the company built trading and execution tools around transaction cost analytics. I worked with the ML and engineering teams to understand what the product needed and help turn those requirements into features and interfaces.</p>
-    <p>I also conducted my own discovery with options traders, practitioners, and professors, asking how they approached trading and execution and where existing tools fell short. I used those conversations to identify opportunities and build product concepts and mockups, including an options activity interface and a tool for helping traders think about execution.</p>
+    <p>At Blockhouse I worked on trading and execution analytics while the company was developing transaction-cost analysis tools.</p>
+    <p>Part of my work was translating quantitative and ML outputs into interfaces traders could actually use. I worked on dashboards for evaluating execution quality and trading-algorithm performance, and I spoke with options traders, practitioners, and professors to understand how they made execution decisions and where existing tools were insufficient.</p>
+    <p>Those conversations informed several product concepts, including an options-activity interface and a tool for turning post-trade execution analytics into something a trader could use when planning the next order.</p>
     <figure class="plate" data-slot="Execution interface">
       <img src="images/blockhouse-backtesting.png" alt="Execution interface">
       <figcaption>Execution interface</figcaption>
     </figure>
-    <figure class="plate" data-slot="Charts">
-      <img src="images/blockhouse-charts.png" alt="Charts">
-      <figcaption>Charts</figcaption>
+    <figure class="plate" data-slot="Options activity interface">
+      <img src="images/blockhouse-charts.png" alt="Options activity interface">
+      <figcaption>Options activity interface</figcaption>
     </figure>
-    <p>Later, I took over the marketing effort for the trading analytics platform, wrote content, and changed the team's approach to distribution by introducing formats that felt more native to trading communities. The strategy helped the platform reach more than 20M impressions.</p>
+    <p>During my final two months I also took responsibility for distribution. I changed the content strategy around how the product was presented to trading communities, and the platform ultimately reached more than 20 million impressions.</p>
+  </div>
+</article>
+
+<article class="entry" id="geist" hidden
+  data-group="Work" data-title="Geist"
+  data-eyebrow="Work">
+  <p class="page-title">Geist</p>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>Geist is a research system for people who cover public companies. It keeps the facts, evidence, and your view of a company connected as new information arrives.</p>
+    <p><a class="text-link" href="https://geist.up.railway.app/" rel="noopener noreferrer">Try Geist</a></p>
+    <h3>Research</h3>
+    <p>Ask what a company reported and Geist returns the figure, the fiscal period, and the exact place it came from in the SEC filing.</p>
+    <p>The source is part of the answer. You can open the filing and inspect the evidence directly. If Geist cannot establish the fact from the available evidence, it refuses rather than filling in the gap.</p>
+    <h3>Memo</h3>
+    <p>Research does not end when a question is answered.</p>
+    <p>You can keep the evidence in a living memo for the company: what you believe, what supports or challenges that view, what could change your mind, and what you want to watch.</p>
+    <p>Geist does not produce a rating or make the investment decision. The memo stays with the analyst.</p>
+    <h3>New filings</h3>
+    <p>When the company reports again, you can bring the new filing back to the research you already have instead of starting from another summary.</p>
+    <p>Geist can surface evidence that supports the existing view, contradicts it, or leaves the question unresolved. Each filing becomes another piece of evidence in the same body of research.</p>
+    <h3>Why the evidence matters</h3>
+    <p>I asked Perplexity and Geist the same question about Microsoft's reported cloud revenue. They returned different answers. I assumed my system was wrong, checked the filing manually, and found that Geist had resolved the right figure.</p>
+    <p><a class="text-link" href="https://www.perplexity.ai/search/fff8296f-d749-45a3-b8dd-99c305b67c7b" rel="noopener noreferrer">The same question asked to Perplexity</a></p>
+    <p>This is because a real number from a real filing can still be the wrong answer. It can belong to a different metric, fiscal period, segment, or column in a table. A citation alone does not resolve those relationships.</p>
+    <p>Models help interpret questions, search, and communicate results, but they are not the source of truth. Geist establishes financial facts against the underlying filing and structured SEC data before returning them.</p>
   </div>
 </article>
 
