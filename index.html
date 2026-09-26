@@ -95,54 +95,45 @@ a{color:inherit}
   display:flex;flex-direction:column;
 }
 .side-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.side-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto}
 .mark{
   font-family:var(--pixel);font-size:18px;letter-spacing:.05em;
   text-transform:uppercase;color:var(--mocha);
   text-decoration:none;line-height:1;display:block;
-  padding-top:11px;
 }
-.theme{
-  min-height:40px;min-width:40px;padding:0 12px;
-  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--ink-2);background:transparent;
-  border:1px solid var(--rule);cursor:pointer;
-  transition-property:color,border-color,background-color;
-  transition-duration:.14s;transition-timing-function:ease;
-}
-.theme:hover{color:var(--mocha);border-color:var(--mocha)}
 
-.nav-scroll{flex:1 1 auto;overflow-y:auto;margin-top:40px;padding-right:6px}
-.grp{margin-bottom:26px}
+.nav-scroll{flex:1 1 auto;overflow-y:auto;margin-top:20px;padding-right:6px}
+.grp{margin-bottom:16px}
 .grp-h{
   font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--ink);margin-bottom:12px;
+  text-transform:uppercase;color:var(--ink);margin-bottom:4px;
 }
 a.grp-h{text-decoration:none;display:block}
 a.grp-h[aria-current="page"]{color:var(--mocha)}
-.grp ul{list-style:none;margin:0;padding:0 0 0 17px}
-.grp li{margin-bottom:4px}
+.grp ul{list-style:none;margin:0;padding:0}
+.grp li{margin:0}
+.grp li+li{margin-top:4px}
 .nlink{
   position:relative;display:block;text-decoration:none;
-  font-size:12.5px;line-height:1.5;color:var(--ink-2);
-  padding:8px 8px 8px 14px;margin-left:-8px;
+  font-size:12.5px;line-height:1.2;color:var(--ink-2);
+  padding:0 0 0 12px;
   transition-property:color;transition-duration:.14s;transition-timing-function:ease;
 }
 .nlink::before{
-  content:"\2022";position:absolute;left:0;top:8px;color:var(--rule);
-  transition:color .14s ease;
+  content:"\2022";position:absolute;left:-2.5px;top:0;line-height:inherit;color:var(--rule);
+  transition-property:color;transition-duration:.14s;transition-timing-function:ease;
 }
 .nlink:hover{color:var(--ink)}
 .nlink:hover::before{color:var(--ink-3)}
 .nlink[aria-current="page"],.nlink[aria-current="page"]::before{color:var(--mocha)}
 
-.elsewhere{padding-top:26px}
-.elsewhere-h{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:11px}
+.elsewhere{padding-top:16px}
+.elsewhere-h{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
 .elsewhere a,
 .foot-link{
-  display:block;font-size:11.5px;letter-spacing:.03em;
-  color:var(--ink-2);text-decoration:none;padding:3px 0;
+  display:block;font-size:11.5px;letter-spacing:.03em;line-height:1.2;
+  color:var(--ink-2);text-decoration:none;padding:0;margin:0;
 }
+.elsewhere a+a{margin-top:4px}
 .elsewhere a:hover,
 .foot-link:hover{color:var(--mocha)}
 
@@ -152,12 +143,45 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   padding:38px 0 90px;
   min-height:100vh;
 }
-.crumb{
+.mast{
+  width:min(945px,100%);margin:0 auto;
   height:36px;display:flex;align-items:center;
+}
+.crumb{
+  height:36px;min-width:0;flex:1 1 auto;
+  display:flex;align-items:center;
+  margin-right:16px;overflow:hidden;
   color:var(--ink-3);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
 }
 .crumb .sep{margin:0 8px;color:var(--rule)}
 .crumb b{color:var(--ink);font-weight:500}
+.theme{
+  position:relative;flex:0 0 auto;
+  width:16px;height:16px;padding:0;margin:0;
+  display:grid;place-items:center;
+  border:0;background:transparent;color:var(--ink-3);
+  line-height:0;cursor:pointer;appearance:none;
+  transition-property:transform;
+  transition-duration:150ms;
+  transition-timing-function:ease-out;
+}
+.theme:hover{color:var(--ink)}
+.theme:active{transform:scale(.96)}
+.theme::before{
+  content:"";position:absolute;
+  width:40px;height:40px;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+}
+.theme-ico{
+  grid-area:1/1;
+  display:flex;align-items:center;justify-content:center;
+}
+.theme svg{display:block;overflow:visible}
+.theme-moon{opacity:1;scale:1;filter:blur(0px)}
+.theme-sun{opacity:0;scale:.25;filter:blur(4px)}
+html[data-theme="dark"] .theme-moon{opacity:0;scale:.25;filter:blur(4px)}
+html[data-theme="dark"] .theme-sun{opacity:1;scale:1;filter:blur(0px)}
 
 .sheet{
   width:min(945px,100%);margin:0 auto;
@@ -172,10 +196,19 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
 @media (prefers-reduced-motion:no-preference){
   .entry.on{animation:rise .28s cubic-bezier(.2,.7,.3,1) both}
   @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-  body,.sheet,.side,.doc p,.mark,.foot-link,.grp-h,.eyebrow,.page-title,.entry h1,.hr,.crumb,.plate img{
+  body,.sheet,.side,.doc p,.doc h2,.doc h3,.doc a.text-link,.mark,.foot-link,.grp-h,.elsewhere-h,.eyebrow,.page-title,.entry h1,.hr,.crumb,.crumb .sep,.crumb b,.plate img,.plate figcaption,.gallery-cap,.menu{
     transition-property:background-color,color,border-color,outline-color,box-shadow;
-    transition-duration:.16s;transition-timing-function:ease;
+    transition-duration:240ms;transition-timing-function:ease;
   }
+  .theme-ico{
+    transition-property:opacity,filter,scale;
+    transition-duration:300ms;
+    transition-timing-function:cubic-bezier(.2,0,0,1);
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .theme{transition-property:none}
+  .theme:active{transform:none}
 }
 
 .eyebrow{
@@ -274,10 +307,7 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
 <aside class="side">
   <div class="side-top">
     <a class="mark" href="/" id="mark">Mujeeb Khan</a>
-    <div class="side-actions">
-      <button class="theme" id="theme" type="button" aria-pressed="false" aria-label="Switch to dark">Dark</button>
-      <button class="menu" id="menu" aria-expanded="false">Contents</button>
-    </div>
+    <button class="menu" id="menu" aria-expanded="false">Contents</button>
   </div>
 
   <div class="nav-scroll" id="navScroll"><nav id="nav" aria-label="Sections"></nav></div>
@@ -292,7 +322,22 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
 </aside>
 
 <main class="main">
-  <div class="crumb" id="crumb"></div>
+  <div class="mast">
+    <div class="crumb" id="crumb"></div>
+    <button class="theme" id="theme" type="button" aria-pressed="false" aria-label="Switch to dark">
+      <span class="theme-ico theme-moon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+        </svg>
+      </span>
+      <span class="theme-ico theme-sun" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+      </span>
+    </button>
+  </div>
 
   <article class="sheet">
 
@@ -522,7 +567,6 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
     if(dark) document.documentElement.setAttribute("data-theme","dark");
     else document.documentElement.removeAttribute("data-theme");
     if(themeBtn){
-      themeBtn.textContent = dark ? "Light" : "Dark";
       themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
       themeBtn.setAttribute("aria-label", dark ? "Switch to light" : "Switch to dark");
     }
