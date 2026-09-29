@@ -185,10 +185,10 @@ html[data-theme="dark"] .theme-moon{opacity:0;scale:.25;filter:blur(4px)}
 html[data-theme="dark"] .theme-sun{opacity:1;scale:1;filter:blur(0px)}
 
 .sheet{
-  width:100%;margin:0;
+  width:min(842px,100%);margin:0;
   background:var(--paper);border:1px solid var(--edge);
   box-shadow:var(--shadow);
-  padding:80px 90px 96px;
+  padding:80px 56px 96px;
   min-height:calc(100vh - 170px);
 }
 
@@ -297,7 +297,7 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
     padding:0 12px;cursor:pointer;
   }
   .main{margin:0;padding:14px 14px 60px}
-  .sheet{padding:52px 22px 64px;box-shadow:none}
+  .sheet{width:100%;padding:52px 22px 64px;box-shadow:none}
   .gallery{grid-template-columns:1fr}
   .hr{margin:32px auto}
 }
