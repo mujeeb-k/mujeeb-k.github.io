@@ -202,9 +202,50 @@ html[data-theme="dark"] .theme-sun{opacity:1;scale:1;filter:blur(0px)}
   padding:clamp(32px,3.2vw,44px) clamp(22px,2.6%,36px) clamp(40px,4vw,56px);
   min-height:calc(100vh - 90px);
 }
+.main:has(#about.on){
+  position:relative;
+  display:grid;
+  place-items:center;
+  height:100vh;
+  min-height:100vh;
+  margin-left:calc(var(--side-w) + var(--side-x));
+  margin-right:0;
+  padding:0;
+}
+.main:has(#about.on) .mast{
+  position:absolute;
+  top:28px;left:16px;
+  width:128px;
+  right:auto;
+}
 .sheet:has(#about.on){
+  --home-gutter:32px;
+  --sq:min(
+    calc(100vw - var(--side-w) - var(--side-x) - 2 * var(--home-gutter)),
+    calc(100vh - 2 * var(--home-gutter))
+  );
+  container-type:inline-size;
+  width:var(--sq);
+  height:var(--sq);
   min-height:0;
-  padding-bottom:clamp(32px,3.2vw,44px);
+  margin:0;
+  padding:calc(var(--sq) * 0.09);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  box-sizing:border-box;
+}
+.sheet:has(#about.on) h1{
+  width:100%;
+  font-size:8.2cqi;
+  margin-bottom:0.35em;
+}
+.sheet:has(#about.on) .hr{margin:1.1em auto 1.35em}
+.sheet:has(#about.on) .doc{width:100%}
+.sheet:has(#about.on) .doc p{
+  font-size:4.55cqi;
+  line-height:1.55;
+  margin:0 0 0.72em;
 }
 
 .entry{display:none}
@@ -332,7 +373,17 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
     padding:0 12px;cursor:pointer;
   }
   .main{margin:0;padding:14px 14px 60px}
+  .main:has(#about.on){
+    display:block;height:auto;min-height:0;
+    margin:0;padding:14px 14px 60px;
+  }
+  .main:has(#about.on) .mast{position:static;left:auto;right:auto;top:auto;width:100%}
   .sheet{width:100%;padding:52px 22px 64px;box-shadow:none}
+  .sheet:has(#about.on){
+    width:100%;height:auto;min-height:0;
+    padding:52px 22px 64px;
+    display:block;
+  }
   .eyebrow,
   .entry h1,
   .page-title,
