@@ -202,6 +202,10 @@ html[data-theme="dark"] .theme-sun{opacity:1;scale:1;filter:blur(0px)}
   padding:clamp(32px,3.2vw,44px) clamp(22px,2.6%,36px) clamp(40px,4vw,56px);
   min-height:calc(100vh - 90px);
 }
+.sheet:has(#about.on){
+  min-height:0;
+  padding-bottom:clamp(32px,3.2vw,44px);
+}
 
 .entry{display:none}
 .entry.on{display:block}
@@ -236,9 +240,13 @@ html[data-theme="dark"] .theme-sun{opacity:1;scale:1;filter:blur(0px)}
 
 .eyebrow,
 .entry h1,
-.page-title,
-.doc{
+.page-title{
   width:88%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.doc{
+  width:min(31.25rem,72%);
   margin-left:auto;
   margin-right:auto;
 }
@@ -247,9 +255,10 @@ html[data-theme="dark"] .theme-sun{opacity:1;scale:1;filter:blur(0px)}
 .doc .gallery-cap{margin-left:0;margin-right:0}
 .doc p{
   font-family:var(--serif);font-size:clamp(15px,1.05vw,16px);
-  line-height:1.7;color:var(--prose);
-  margin:0 0 22px;text-wrap:pretty;
+  line-height:1.65;color:var(--prose);
+  margin:0 0 1.15em;text-wrap:pretty;
 }
+.sheet:has(#about.on) .doc p:last-child{margin-bottom:0}
 #about .doc p{font-size:clamp(16px,1.12vw,17px)}
 .doc h2{
   font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;
@@ -289,9 +298,9 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
 }
 .doc > .plate,
 .doc > .gallery{
-  width:110%;
-  margin-left:-5%;
-  margin-right:-5%;
+  width:148%;
+  margin-left:-24%;
+  margin-right:-24%;
 }
 .gallery .plate{margin:0}
 .gallery .plate img{
