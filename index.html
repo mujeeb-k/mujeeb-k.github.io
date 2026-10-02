@@ -129,6 +129,12 @@ a.grp-h[aria-current="page"]{color:var(--mocha)}
   top:-4px;bottom:-4px;
 }
 .nlink:hover{color:var(--ink)}
+.badge{
+  display:inline-block;vertical-align:2px;margin-left:8px;
+  font-family:var(--mono);font-size:8.5px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;line-height:1;color:var(--mocha);
+  padding:3px 5px 2px;border:1px solid currentColor;border-radius:3px;
+}
 .nlink:hover::before{color:var(--ink-3)}
 .nlink[aria-current="page"],.nlink[aria-current="page"]::before{color:var(--mocha)}
 
@@ -237,12 +243,12 @@ html[data-theme="dark"] .theme-sun{opacity:1;scale:1;filter:blur(0px)}
 .eyebrow,
 .entry h1,
 .page-title{
-  width:88%;
+  width:88%;max-width:720px;
   margin-left:auto;
   margin-right:auto;
 }
 .doc{
-  width:80%;
+  width:80%;max-width:640px;
   margin-left:auto;
   margin-right:auto;
 }
@@ -254,7 +260,7 @@ html[data-theme="dark"] .theme-sun{opacity:1;scale:1;filter:blur(0px)}
   line-height:1.65;color:var(--prose);
   margin:0 0 1.15em;text-wrap:pretty;
 }
-#about .doc p{font-size:16px}
+#p-about .doc p{font-size:16px}
 .doc h2{
   font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink-3);
@@ -264,7 +270,39 @@ html[data-theme="dark"] .theme-sun{opacity:1;scale:1;filter:blur(0px)}
   font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;
   color:var(--ink-2);margin:40px 0 14px;
 }
-.doc a.text-link{color:var(--mocha);text-decoration:underline;text-underline-offset:.18em}
+.doc a.text-link{color:var(--mocha);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
+.doc a.text-link:hover{text-decoration-thickness:2px}
+.doc h3:first-of-type{margin-top:44px}
+.doc code{
+  font-family:var(--mono);font-size:.82em;
+  background:var(--mocha-wash);color:var(--ink);
+  padding:.12em .4em;border-radius:3px;
+}
+.doc .points{
+  font-family:var(--serif);font-size:clamp(15px,1.05vw,16px);
+  line-height:1.65;color:var(--prose);
+  margin:0 0 1.15em;padding-left:1.3em;
+}
+.doc .points li{padding-left:.25em}
+.doc .points li+li{margin-top:.45em}
+.doc .points li::marker{color:var(--mocha);font-family:var(--mono);font-size:.85em}
+.doc .points b{font-weight:500;color:var(--ink)}
+.table-wrap{margin:26px 0 30px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.doc table{
+  width:100%;border-collapse:collapse;
+  font-family:var(--serif);font-size:14.5px;line-height:1.5;color:var(--prose);
+}
+.doc th{
+  font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);text-align:left;
+  padding:0 16px 10px 0;border-bottom:1px solid var(--rule);
+}
+.doc td{
+  padding:11px 16px 11px 0;vertical-align:top;
+  border-bottom:1px solid var(--rule-soft);text-wrap:pretty;
+}
+.doc td:first-child{color:var(--ink);min-width:150px}
+.doc tr:last-child td{border-bottom:0}
 
 .plate{margin:38px 0}
 .plate img{
@@ -326,8 +364,25 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
     background:none;border:1px solid var(--rule);color:var(--ink-2);
     padding:0 12px;cursor:pointer;
   }
-  .main{margin:0;padding:14px 14px 60px}
-  .sheet{width:100%;padding:52px 22px 64px;box-shadow:none}
+  .side{padding:20px 16px 14px}
+  .main{margin:0;padding:12px 16px 48px}
+  .mast{height:28px}
+  .crumb{height:28px}
+  .sheet{width:100%;min-height:0;padding:40px 20px 52px;box-shadow:none}
+  .doc p,.doc .points{font-size:16px}
+  .doc table,.doc tbody,.doc tr,.doc td{display:block;width:100%}
+  .doc thead{display:none}
+  .doc tr{padding:14px 0;border-bottom:1px solid var(--rule-soft)}
+  .doc tr:first-child{border-top:1px solid var(--rule)}
+  .doc tr:last-child{border-bottom:0}
+  .doc td{padding:0;border:0;font-size:15px}
+  .doc td:first-child{font-size:16px;margin-bottom:6px}
+  .doc td+td[data-label]::before{
+    content:attr(data-label);display:block;margin:8px 0 2px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-3);
+  }
+  .doc td:nth-child(2)::before{margin-top:0}
   .eyebrow,
   .entry h1,
   .page-title,
@@ -381,19 +436,100 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
 
   <article class="sheet">
 
-<article class="entry on" id="about"
+<article class="entry on" id="p-about"
   data-group="About" data-title="About">
   <h1>Hi, I'm Mujeeb</h1>
   <div class="hr"></div>
   <div class="doc">
     <p>I like working on hard problems where technology can make something meaningfully better.</p>
-    <p>I'm currently building a harness for people who research public companies. Ask what a company reported and the system finds the exact place it came from in the SEC filing. It keeps the source attached to the research, so you can revisit your work and see what changes when the company reports again.</p>
-    <p>I'm also building an agent orchestrator for coding.</p>
+    <p>I'm currently building <a class="text-link" href="#geist">Geist</a>, a harness for people who research public companies. Ask what a company reported and the system finds the exact place it came from in the SEC filing. It keeps the source attached to the research, so you can revisit your work and see what changes when the company reports again.</p>
+    <p>I'm also building <a class="text-link" href="#league-of-agents">League of Agents</a>, a code canvas that shows every change your coding agents make, so each run can be checked, kept or undone.</p>
+    <p>Before that, I worked on AI and reporting systems at <a class="text-link" href="#sap">SAP</a> and on portfolio risk research at <a class="text-link" href="#ryse">Ryse</a>.</p>
     <p>I grew up in Dubai and am now based in New York.</p>
   </div>
 </article>
 
-<article class="entry" id="geist" hidden
+<article class="entry" id="p-league-of-agents" hidden
+  data-group="Projects" data-title="League of Agents"
+  data-eyebrow="Projects" data-badge="New">
+  <p class="page-title">League of Agents</p>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>Coding agents write code faster than anyone can review it. League of Agents puts the repo on a zoomable map and shows every agent change on that map, so each run can be checked, kept or undone.</p>
+    <p><a class="text-link" href="https://leagueofagents.dev/" rel="noopener noreferrer">Try League of Agents</a></p>
+
+    <h3>The problem</h3>
+    <p>Review is the bottleneck in agentic coding. The human's job used to be writing code. Now it is directing agents and verifying what they did.</p>
+    <p>The tools did not change with the job. So people skim the changes and hope. Many do not look at the code at all.</p>
+    <p>That breaks down into three gaps:</p>
+    <ul class="points">
+      <li><b>Visibility.</b> After a run, nothing shows where the changes landed in the project or which files depend on them.</li>
+      <li><b>Scope.</b> Asking an agent to work on one file or one function is a request. Nothing stops it from editing elsewhere.</li>
+      <li><b>Proof.</b> The agent reports its work in a summary. A summary is a description, not evidence.</li>
+    </ul>
+    <p>Every improvement in agents makes this worse. Faster models and more agents running at once produce more changed code per hour. The hours a person has to review it stay fixed.</p>
+    <p>The problem also covers people who build with agents and do not write the code themselves. They need to know what changed, and a raw diff tells them less than it tells a developer.</p>
+    <p>The problem is recognized outside this project. In late September 2026, Rohan Varma of OpenAI publicly named visualizing and tracking many agent work streams as his top open question.</p>
+
+    <h3>Why current tools do not solve it</h3>
+    <p>Agent interfaces today are chat panels and terminal logs. Both are linear. A codebase is not linear: it is folders, files and the imports between them.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tool</th><th>What it shows</th><th>What it misses</th></tr></thead>
+        <tbody>
+          <tr><td>Chat panel or terminal log</td><td>The agent's messages, in order</td><td>Where in the project each change landed</td></tr>
+          <tr><td>Agent summary</td><td>A description of the work</td><td>Proof. It can be wrong or incomplete</td></tr>
+          <tr><td>git diff</td><td>Exact line changes</td><td>Project layout, dependencies, and a history per run</td></tr>
+          <tr><td>Scope written in the prompt</td><td>The intent</td><td>Enforcement</td></tr>
+          <tr><td>A vendor's own agent view</td><td>That vendor's agent</td><td>Work done by any other agent, or by hand</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The canvas tools found in September 2026 place agent terminals on a canvas. That arranges the chat logs. It does not show the code.</p>
+    <p>The change itself has a location. A tool for reviewing changes should show that location.</p>
+
+    <h3>What League of Agents is</h3>
+    <p>League of Agents is an agentic code canvas: the code itself is the canvas. The tagline is &ldquo;See every change your agents make.&rdquo;</p>
+    <p>Zoomed out, the map shows the folder structure of the whole repo. Zoomed in, each file is a box of code, with lines connecting files that import each other. A minimap jumps to any part of the repo.</p>
+    <p>The working loop has four steps:</p>
+    <ol class="points">
+      <li><b>See the project.</b> Open the repo as one map instead of a file tree and a chat.</li>
+      <li><b>Point.</b> Select a file or a block of code and tell the agent to work on that only. The scope is checked against the actual diff after the run, and out-of-scope edits are blocked where the agent supports it.</li>
+      <li><b>Review.</b> Every run lands on the map as before, after and diff. Changed files are marked where they sit. The project's checks run after the change.</li>
+      <li><b>Keep or undo.</b> One click each. Undo restores every file from the snapshot taken before the run.</li>
+    </ol>
+    <p>Three features extend the loop:</p>
+    <ul class="points">
+      <li><b>Editing on the canvas.</b> Edits made by hand are recorded as runs, so human and agent changes share one history.</li>
+      <li><b>Propagate.</b> After a hand edit, the agent gets one instruction: update everything that depends on this change. The map shows each affected file.</li>
+      <li><b>Watch mode.</b> Changes made outside a tracked run, by any agent or editor, are grouped into a run automatically.</li>
+    </ul>
+    <p>Setup is one command, <code>npx leagueofagents-cli</code>, or one line pasted into an agent. It works with Claude Code, Codex, Cursor and more. It runs on the user's machine, and League of Agents itself never sends code anywhere.</p>
+
+    <h3>The decisions and why</h3>
+    <p>Each decision follows from one rule: the product exists to make changes visible and checkable.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Decision</th><th>Reason</th></tr></thead>
+        <tbody>
+          <tr><td>The code is the canvas, not the agent's terminal</td><td>The thing under review is the code. The map has to show it</td></tr>
+          <tr><td>Before and after per run, not live watching</td><td>The run is the unit that gets reviewed, kept or undone</td></tr>
+          <tr><td>No fog, no game framing. The minimap stays</td><td>The point is visibility. It is a practical developer tool, and the minimap is useful navigation</td></tr>
+          <tr><td>Scope is enforced, not requested</td><td>&ldquo;Work on that only&rdquo; has to hold. A prompt alone does not guarantee it</td></tr>
+          <tr><td>Git snapshots are the source of truth for every diff</td><td>They are exact and work for every agent. The user's branch and staging area are never touched</td></tr>
+          <tr><td>Connect existing agents. Do not build or fork one</td><td>The product is the canvas. Adoption requires it to work with whatever agent a person already uses</td></tr>
+          <tr><td>Editing on the canvas is core</td><td>A map that only displays code is a viewer. Heavy editing still opens in Cursor or VS Code</td></tr>
+          <tr><td>Runs on the user's machine, asks before installing hooks, uninstalls cleanly</td><td>The tool runs commands in people's repos. Trust is a requirement</td></tr>
+          <tr><td>Open source under Apache 2.0</td><td>The goal is adoption. Anyone can use it or fork it</td></tr>
+          <tr><td>The visual standard is not negotiable</td><td>Review is a display problem. If the change cannot be seen clearly, the product has no point</td></tr>
+          <tr><td>Every run carries proof</td><td>Check results and a diff that matches git, not a description</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</article>
+
+<article class="entry" id="p-geist" hidden
   data-group="Projects" data-title="Geist"
   data-eyebrow="Projects">
   <p class="page-title">Geist</p>
@@ -421,7 +557,7 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
   </div>
 </article>
 
-<article class="entry" id="sap" hidden
+<article class="entry" id="p-sap" hidden
   data-group="Work" data-title="SAP"
   data-eyebrow="Work">
   <p class="page-title">SAP</p>
@@ -443,7 +579,7 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
   </div>
 </article>
 
-<article class="entry" id="ryse" hidden
+<article class="entry" id="p-ryse" hidden
   data-group="Work" data-title="Ryse, Inc."
   data-eyebrow="Work">
   <p class="page-title">Ryse, Inc.</p>
@@ -456,16 +592,10 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
     <p>I later extended the work across the S&amp;P 500 to study how dependence between assets changed during periods such as the tech bubble burst, 2008 financial crisis, COVID, the 2025 tariffs period and everything in between. The research became part of Ryse's risk platform and was later presented at Bloomberg's Quant Seminar Series.</p>
     <div class="gallery">
       <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
-        <img src="images/ryse-bloomberg-02.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
-      </figure>
-      <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
         <img src="images/ryse-bloomberg-03.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
       </figure>
       <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
         <img src="images/ryse-bloomberg-04.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
-      </figure>
-      <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
-        <img src="images/ryse-bloomberg-05.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
       </figure>
     </div>
     <p class="gallery-cap">“Risk Modeling of Nonlinear Assets” at Bloomberg’s Quant Seminar Series</p>
@@ -473,26 +603,6 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
   </div>
 </article>
 
-<article class="entry" id="blockhouse" hidden
-  data-group="Work" data-title="Blockhouse"
-  data-eyebrow="Work">
-  <p class="page-title">Blockhouse</p>
-  <div class="hr"></div>
-  <div class="doc">
-    <p>At Blockhouse I worked on trading and execution analytics while the company was developing transaction-cost analysis tools.</p>
-    <p>Part of my work was translating quantitative and ML outputs into interfaces traders could actually use. I worked on dashboards for evaluating execution quality and trading-algorithm performance, and I spoke with options traders, practitioners, and professors to understand how they made execution decisions and where existing tools were insufficient.</p>
-    <p>Those conversations informed several product concepts, including an options-activity interface and a tool for turning post-trade execution analytics into something a trader could use when planning the next order.</p>
-    <figure class="plate" data-slot="Execution interface">
-      <img src="images/blockhouse-backtesting.png" alt="Execution interface">
-      <figcaption>Execution interface</figcaption>
-    </figure>
-    <figure class="plate" data-slot="Options activity interface">
-      <img src="images/blockhouse-charts.png" alt="Options activity interface">
-      <figcaption>Options activity interface</figcaption>
-    </figure>
-    <p>During my final two months I also took responsibility for distribution. I changed the content strategy around how the product was presented to trading communities, and the platform ultimately reached more than 20 million impressions.</p>
-  </div>
-</article>
 
 
   </article>
@@ -502,7 +612,7 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
 (function(){
   "use strict";
   var all   = [].slice.call(document.querySelectorAll("article.entry"));
-  var home  = document.getElementById("about");
+  var home  = document.getElementById("p-about");
   var mark  = document.getElementById("mark");
   var nav   = document.getElementById("nav");
   var crumb = document.getElementById("crumb");
@@ -516,6 +626,10 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
     mail.href = "mailto:" + u + "@" + d;
   }
 
+  // Articles carry a "p-" id prefix so the URL hash never matches an element
+  // and the browser can't jump-scroll into the page on load or navigation.
+  function slug(a){ return a.id.slice(2); }
+
   function esc(s){
     return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
   }
@@ -523,6 +637,13 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
   [].forEach.call(document.querySelectorAll(".plate img"), function(img){
     img.addEventListener("error", function(){ img.parentNode.className += " missing"; });
     if(img.complete && img.naturalWidth === 0) img.parentNode.className += " missing";
+  });
+
+  [].forEach.call(document.querySelectorAll(".doc table"), function(t){
+    var heads = [].map.call(t.querySelectorAll("thead th"), function(th){ return th.textContent; });
+    [].forEach.call(t.querySelectorAll("tbody tr"), function(tr){
+      [].forEach.call(tr.children, function(td, i){ if(heads[i]) td.setAttribute("data-label", heads[i]); });
+    });
   });
 
   all.forEach(function(a){
@@ -547,20 +668,22 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
     var d = document.createElement("div");
     d.className = "grp";
     if(items.length === 1 && items[0].getAttribute("data-title") === g){
-      d.innerHTML = '<a class="grp-h" href="#'+items[0].id+'">'+esc(g)+'</a>';
+      d.innerHTML = '<a class="grp-h" href="#'+slug(items[0])+'">'+esc(g)+'</a>';
       nav.appendChild(d);
       return;
     }
     var h = '<div class="grp-h">'+esc(g)+'</div><ul>';
     items.forEach(function(a){
-      h += '<li><a class="nlink" href="#'+a.id+'">'+esc(a.getAttribute("data-nav") || a.getAttribute("data-title"))+'</a></li>';
+      var b = a.getAttribute("data-badge");
+      h += '<li><a class="nlink" href="#'+slug(a)+'">'+esc(a.getAttribute("data-nav") || a.getAttribute("data-title"))+
+        (b ? '<span class="badge">'+esc(b)+'</span>' : '')+'</a></li>';
     });
     d.innerHTML = h + "</ul>";
     nav.appendChild(d);
   });
 
   function show(id){
-    var t = document.getElementById(id);
+    var t = id ? document.getElementById("p-"+id) : null;
     if(!t || t.className.indexOf("entry") === -1) t = home;
     all.forEach(function(a){
       a.className = "entry";
@@ -570,7 +693,7 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
     t.hidden = false;
 
     [].forEach.call(nav.querySelectorAll("a"), function(l){
-      if(l.getAttribute("href") === "#"+t.id) l.setAttribute("aria-current","page");
+      if(l.getAttribute("href") === "#"+slug(t)) l.setAttribute("aria-current","page");
       else l.removeAttribute("aria-current");
     });
     if(t === home) mark.setAttribute("aria-current","page");
@@ -620,7 +743,8 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
     });
   }
 
-  show(location.hash.slice(1) || "about");
+  if("scrollRestoration" in history) history.scrollRestoration = "manual";
+  show(location.hash.slice(1));
 })();
 </script>
 </body>
