@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mujeeb Khan</title>
-<meta name="description" content="Work by Mujeeb Khan.">
+<meta name="description" content="Projects by Mujeeb Khan.">
 <meta property="og:title" content="Mujeeb Khan">
 <meta property="og:site_name" content="Mujeeb Khan">
-<meta property="og:description" content="Work by Mujeeb Khan.">
+<meta property="og:description" content="Projects by Mujeeb Khan.">
 <meta property="og:url" content="https://mujeeb-k.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://mujeeb-k.github.io/images/og-image.png">
@@ -15,7 +15,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mujeeb Khan">
-<meta name="twitter:description" content="Work by Mujeeb Khan.">
+<meta name="twitter:description" content="Projects by Mujeeb Khan.">
 <meta name="twitter:image" content="https://mujeeb-k.github.io/images/og-image.png">
 <meta name="apple-mobile-web-app-title" content="Mujeeb Khan">
 <meta name="application-name" content="Mujeeb Khan">
@@ -451,8 +451,7 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
   <h1>Hi, I'm Mujeeb</h1>
   <div class="hr"></div>
   <div class="doc">
-    <p>I'm working on evaluation and training environments for agents, drawing on problems I’ve encountered in enterprise software and financial research. Previously, I worked on enterprise AI and analytics at <a class="text-link" href="#sap">SAP</a> and quantitative credit risk at <a class="text-link" href="#ryse">Ryse</a>. I grew up in Dubai and am based in New York.</p>
-    <p>My current project is <a class="text-link" href="#league-of-agents">League of Agents</a>, an open-source workspace for reviewing work by AI models and coding agents. As AI ships code faster than ever, it becomes crucial to control the chaos. <a class="text-link" href="https://github.com/mujeeb-k/league-of-agents/" rel="noopener noreferrer">LOA</a> maps a repository, shows where each agent made changes, and helps you decide what to keep or undo.</p>
+    <p>I'm currently post-training LLMs and learning about reinforcement learning. I&nbsp;was born and raised in Dubai and am now based in New York. This site contains some notes about my projects.</p>
   </div>
 </article>
 
@@ -540,54 +539,6 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
   </div>
 </article>
 
-<article class="entry" id="p-sap" hidden
-  data-group="Work" data-title="SAP"
-  data-eyebrow="Work">
-  <p class="page-title">SAP</p>
-  <div class="hr"></div>
-  <div class="doc">
-    <p>I joined SAP working on Cloud ERP reporting that was spread across spreadsheets and older BI systems. I rebuilt the workflow in SAP Analytics Cloud, consolidating data across more than 60 partners in the Americas, EMEA, and APJ into a single reporting system used by Sales, Services, and GTM.</p>
-    <p>From there I moved into AI and application work. I built Python and SQL retrieval pipelines for an internal assistant over S/4HANA Cloud documentation and release material. That work fed into a broader internal effort that later became part of Joule for Consultants.</p>
-    <p>I also worked with SAP's FDE and product teams on an Accounts Payable problem for a multinational pharmaceutical company. Over several discovery sessions, I mapped how invoice exceptions moved through a legacy SAP VIM workflow and where investigation required manual work across systems.</p>
-    <p>I then built a prototype around three-way matching: reconciling invoice, purchase-order, and goods-receipt data, diagnosing why a match failed, and routing the next action.</p>
-    <p>The public version uses synthetic records and implements 14 discrepancy types with deterministic matching and risk logic, approval-gated actions, an audit trail, and separate boundaries for SAP and model providers. It is built with SAP CAP, TypeScript, and React.</p>
-    <figure class="plate" data-slot="Three-way matching prototype">
-      <a href="https://github.com/mujeeb-k/AP-Three-Way-Matching-Agent" rel="noopener noreferrer">
-        <img src="images/sap-three-way-matching.png" alt="Accounts Payable three-way matching prototype">
-      </a>
-      <figcaption>Three-way matching prototype</figcaption>
-    </figure>
-    <p><a class="text-link" href="https://github.com/mujeeb-k/AP-Three-Way-Matching-Agent" rel="noopener noreferrer">View the AP three-way matching system</a></p>
-    <p>I later transitioned the reporting system to two incoming interns and helped run internal AI enablement sessions.</p>
-  </div>
-</article>
-
-<article class="entry" id="p-ryse" hidden
-  data-group="Work" data-title="Ryse, Inc."
-  data-eyebrow="Work">
-  <p class="page-title">Ryse, Inc.</p>
-  <div class="hr"></div>
-  <div class="doc">
-    <p>At Ryse, I worked on portfolio risk analysis for large fixed-income portfolios.</p>
-    <p>The starting point was an Excel-based model used to understand how different bonds and risk factors moved together, especially during periods of market stress or major market events. It could answer useful questions, but the process was manual and difficult to extend: adding more assets, testing different assumptions, or rerunning the analysis across new periods required a lot of hands-on work.</p>
-    <p>I rebuilt the analysis from scratch on Python and turned it into a repeatable pipeline. Instead of working through a small set of positions one at a time, we could process much larger portfolios, test multiple ways of modeling how assets move together, and run simulations to see how losses could behave under different market conditions.</p>
-    <p>That mattered because portfolio risk is often driven less by what each asset does on its own and more by what happens when many assets move together at the same time. The Python system made it easier to test those relationships consistently, compare results across market regimes, and reuse the same analysis as the portfolio changed.</p>
-    <p>I later extended the work across the S&amp;P 500 to study how dependence between assets changed during periods such as the tech bubble burst, 2008 financial crisis, COVID, the 2025 tariffs period and everything in between. The research became part of Ryse's risk platform and was later presented at Bloomberg's Quant Seminar Series.</p>
-    <div class="gallery">
-      <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
-        <img src="images/ryse-bloomberg-03.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
-      </figure>
-      <figure class="plate" data-slot="Bloomberg Quant Seminar Series">
-        <img src="images/ryse-bloomberg-04.jpg" alt="Presentation at the Bloomberg Quant Seminar Series">
-      </figure>
-    </div>
-    <p class="gallery-cap">“Risk Modeling of Nonlinear Assets” at Bloomberg’s Quant Seminar Series</p>
-    <p>I also brought a voice interface I had been building into the platform. The language model interpreted the user's question, while the underlying analytics engine remained responsible for the financial calculation. I adapted the system for Ryse and deployed the integration on Azure.</p>
-  </div>
-</article>
-
-
-
   </article>
 </main>
 
@@ -638,7 +589,7 @@ html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
     a.insertBefore(d, a.firstChild);
   });
 
-  var order = ["Work", "Projects"];
+  var order = ["Projects"];
   var bucket = {};
   [].forEach.call(document.querySelectorAll("article.entry[data-group]"), function(a){
     var g = a.getAttribute("data-group");
