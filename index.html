@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mujeeb Khan</title>
+<meta name="description" content="Projects by Mujeeb Khan.">
+<meta property="og:title" content="Mujeeb Khan">
+<meta property="og:site_name" content="Mujeeb Khan">
+<meta property="og:description" content="Projects by Mujeeb Khan.">
+<meta property="og:url" content="https://mujeeb-k.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mujeeb-k.github.io/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mujeeb Khan">
+<meta name="twitter:description" content="Projects by Mujeeb Khan.">
+<meta name="twitter:image" content="https://mujeeb-k.github.io/images/og-image.png">
+<meta name="apple-mobile-web-app-title" content="Mujeeb Khan">
+<meta name="application-name" content="Mujeeb Khan">
+<link rel="canonical" href="https://mujeeb-k.github.io/">
+<meta name="robots" content="noai, noimageai">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'unsafe-inline'; img-src 'self' data:; connect-src https://fonts.googleapis.com https://fonts.gstatic.com; base-uri 'none'; form-action 'none'">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
+
+<script>
+(function(){
+  try {
+    var saved = localStorage.getItem("theme");
+    var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (dark) document.documentElement.setAttribute("data-theme", "dark");
+  } catch (e) {}
+})();
+</script>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f1f3f6;
+  --paper:#ffffff;
+  --ink:#141416;
+  --ink-2:#4d4b47;
+  --ink-3:#8b8883;
+  --prose:#292929;
+  --rule:#e5e2db;
+  --rule-soft:#efece6;
+  --edge:#e5e5e5;
+  --mocha:#6b4a34;
+  --mocha-wash:#f6f1ec;
+  --shadow:0 2px 7px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.025);
+  --pixel:"Geist Pixel","Geist Mono",ui-monospace,monospace;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --side-w:275px;
+  --side-x:30px;
+}
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#121110;
+  --paper:#1e1c1a;
+  --ink:#f6f5f2;
+  --ink-2:#c9c4bc;
+  --ink-3:#aea89f;
+  --prose:#efece6;
+  --rule:#3a3632;
+  --rule-soft:#2a2724;
+  --edge:#3a3632;
+  --mocha:#e0c4ad;
+  --mocha-wash:#2a2420;
+  --shadow:0 2px 7px rgba(0,0,0,.28),0 10px 30px rgba(0,0,0,.22);
+}
+
+*{box-sizing:border-box}
+html{
+  -webkit-text-size-adjust:100%;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--mono);font-size:13px;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--mocha);outline-offset:3px}
+
+.side{
+  position:fixed;top:0;left:var(--side-x);
+  width:var(--side-w);height:100vh;
+  padding:38px 22px 30px 0;
+  display:flex;flex-direction:column;
+}
+.side-top{display:flex;align-items:flex-start;justify-content:flex-start}
+.side-id{display:flex;align-items:center}
+.mark{
+  font-family:var(--pixel);font-size:18px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--mocha);
+  text-decoration:none;line-height:1;display:block;
+}
+
+.nav-scroll{flex:1 1 auto;overflow-y:auto;margin-top:28px;padding-right:6px}
+.grp{margin-bottom:22px}
+.grp-h{
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:8px;
+}
+a.grp-h{text-decoration:none;display:block}
+a.grp-h[aria-current="page"]{color:var(--mocha)}
+.grp ul{list-style:none;margin:0;padding:0}
+.grp li{margin:0}
+.grp li+li{margin-top:8px}
+.nlink{
+  position:relative;display:block;text-decoration:none;
+  font-size:15px;line-height:1.2;color:var(--ink-2);
+  padding:0 0 0 14px;
+  transition-property:color;transition-duration:.14s;transition-timing-function:ease;
+}
+.nlink::before{
+  content:"\2022";position:absolute;left:-2.5px;top:0;line-height:inherit;color:var(--rule);
+  transition-property:color;transition-duration:.14s;transition-timing-function:ease;
+}
+.nlink::after{
+  content:"";position:absolute;
+  left:-16px;right:0;
+  top:-4px;bottom:-4px;
+}
+.nlink:hover{color:var(--ink)}
+.badge{
+  display:inline-block;vertical-align:2px;margin-left:8px;
+  font-family:var(--mono);font-size:8.5px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;line-height:1;color:var(--mocha);
+  padding:3px 5px 2px;border:1px solid currentColor;border-radius:3px;
+}
+.nlink:hover::before{color:var(--ink-3)}
+.nlink[aria-current="page"],.nlink[aria-current="page"]::before{color:var(--mocha)}
+
+.elsewhere{padding-top:22px}
+.elsewhere-h{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.elsewhere a,
+.foot-link{
+  position:relative;
+  display:block;font-size:14px;letter-spacing:.03em;line-height:1.2;
+  color:var(--ink-2);text-decoration:none;padding:0;margin:0;
+}
+.elsewhere a+a{margin-top:8px}
+.foot-link::after{
+  content:"";position:absolute;
+  left:-8px;right:-8px;
+  top:-4px;bottom:-4px;
+}
+.elsewhere a:hover,
+.foot-link:hover{color:var(--mocha)}
+
+.main{
+  margin-left:calc(var(--side-w) + var(--side-x) + 16px);
+  margin-right:16px;
+  padding:38px 0 16px;
+  min-height:100vh;
+}
+.mast{
+  width:100%;margin:0;
+  height:36px;display:flex;align-items:center;
+}
+.crumb{
+  height:36px;min-width:0;flex:1 1 auto;
+  display:flex;align-items:center;
+  overflow:hidden;
+  color:var(--ink-3);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+}
+.crumb .sep{margin:0 8px;color:var(--rule)}
+.crumb b{color:var(--ink);font-weight:500}
+.theme{
+  position:relative;flex:0 0 auto;
+  width:16px;height:16px;padding:0;margin:0 0 0 22px;
+  display:grid;place-items:center;
+  border:0;background:transparent;color:var(--ink-3);
+  line-height:0;cursor:pointer;appearance:none;
+  transition-property:transform;
+  transition-duration:150ms;
+  transition-timing-function:ease-out;
+}
+.theme:hover{color:var(--ink)}
+.theme:active{transform:scale(.96)}
+.theme::before{
+  content:"";position:absolute;
+  width:40px;height:40px;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+}
+.theme-ico{
+  grid-area:1/1;
+  display:flex;align-items:center;justify-content:center;
+}
+.theme svg{display:block;overflow:visible}
+.theme-moon{opacity:1;scale:1;filter:blur(0px)}
+.theme-sun{opacity:0;scale:.25;filter:blur(4px)}
+html[data-theme="dark"] .theme-moon{opacity:0;scale:.25;filter:blur(4px)}
+html[data-theme="dark"] .theme-sun{opacity:1;scale:1;filter:blur(0px)}
+
+.sheet{
+  width:100%;margin:0;
+  background:var(--paper);border:1px solid var(--edge);
+  box-shadow:var(--shadow);
+  padding:clamp(32px,3.2vw,44px) clamp(22px,2.6%,36px) clamp(40px,4vw,56px);
+  min-height:calc(100vh - 90px);
+}
+
+.entry{display:none}
+.entry.on{display:block}
+@media (prefers-reduced-motion:no-preference){
+  .entry.on{animation:rise .28s cubic-bezier(.2,.7,.3,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  body,.sheet,.side,.doc p,.doc h2,.doc h3,.doc a.text-link,.mark,.foot-link,.grp-h,.elsewhere-h,.eyebrow,.page-title,.entry h1,.hr,.crumb,.crumb .sep,.crumb b,.plate img,.plate figcaption,.gallery-cap,.menu{
+    transition-property:background-color,color,border-color,outline-color,box-shadow;
+    transition-duration:240ms;transition-timing-function:ease;
+  }
+  .theme-ico{
+    transition-property:opacity,filter,scale;
+    transition-duration:300ms;
+    transition-timing-function:cubic-bezier(.2,0,0,1);
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .theme{transition-property:none}
+  .theme:active{transform:none}
+}
+
+.eyebrow{
+  text-align:center;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:18px;
+}
+.entry h1,.page-title{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(28px,2.1vw,32px);line-height:1.1;letter-spacing:-.015em;
+  text-align:center;margin:0 auto 16px;text-wrap:balance;
+}
+.hr{width:35px;height:1px;background:var(--mocha);margin:28px auto}
+
+.eyebrow,
+.entry h1,
+.page-title{
+  width:88%;max-width:720px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.doc{
+  width:80%;max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.doc p,
+.doc h3,
+.doc .gallery-cap{margin-left:0;margin-right:0}
+.doc p{
+  font-family:var(--serif);font-size:clamp(15px,1.05vw,16px);
+  line-height:1.65;color:var(--prose);
+  margin:0 0 1.15em;text-wrap:pretty;
+}
+.sheet:has(> #p-about.on){display:flex;flex-direction:column;justify-content:center}
+#p-about{padding-bottom:6vh}
+#p-about h1{font-size:clamp(34px,2.9vw,46px);margin-bottom:6px}
+#p-about .hr{margin:30px auto 34px}
+#p-about .doc{max-width:600px}
+#p-about .doc p{font-size:clamp(17px,1.3vw,19px);line-height:1.62;margin-bottom:1.05em}
+.doc h2{
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3);
+  margin:48px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--rule);
+}
+.doc h3{
+  font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;
+  color:var(--ink-2);margin:40px 0 14px;
+}
+.doc a.text-link{color:var(--mocha);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
+.doc a.text-link:hover{text-decoration-thickness:2px}
+.doc h3:first-of-type{margin-top:44px}
+.doc code{
+  font-family:var(--mono);font-size:.82em;
+  background:var(--mocha-wash);color:var(--ink);
+  padding:.12em .4em;border-radius:3px;
+}
+.doc .points{
+  font-family:var(--serif);font-size:clamp(15px,1.05vw,16px);
+  line-height:1.65;color:var(--prose);
+  margin:0 0 1.15em;padding-left:1.3em;
+}
+.doc .points li{padding-left:.25em}
+.doc .points li+li{margin-top:.45em}
+.doc .points li::marker{color:var(--mocha);font-family:var(--mono);font-size:.85em}
+.doc .points b{font-weight:500;color:var(--ink)}
+.table-wrap{margin:26px 0 30px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.doc table{
+  width:100%;border-collapse:collapse;
+  font-family:var(--serif);font-size:14.5px;line-height:1.5;color:var(--prose);
+}
+.doc th{
+  font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);text-align:left;
+  padding:0 16px 10px 0;border-bottom:1px solid var(--rule);
+}
+.doc td{
+  padding:11px 16px 11px 0;vertical-align:top;
+  border-bottom:1px solid var(--rule-soft);text-wrap:pretty;
+}
+.doc td:first-child{color:var(--ink);min-width:150px}
+.doc tr:last-child td{border-bottom:0}
+
+.plate{margin:38px 0}
+.plate img{
+  width:100%;display:block;
+  outline:1px solid oklch(0 0 0 / 0.1);outline-offset:-1px;
+}
+html[data-theme="dark"] .plate img{outline-color:oklch(1 0 0 / 0.1)}
+.doc .plate a{display:block}
+.plate figcaption{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:10px}
+.plate.missing img{display:none}
+.plate.missing::before{
+  content:attr(data-slot);display:flex;align-items:center;justify-content:center;
+  min-height:260px;border:1px solid var(--edge);
+  background:linear-gradient(var(--mocha-wash) 1px,transparent 1px),
+             linear-gradient(90deg,var(--mocha-wash) 1px,transparent 1px);
+  background-size:25px 25px;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mocha);
+  text-align:center;padding:0 24px;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:32px 0 10px;
+}
+.doc > .plate,
+.doc > .gallery{
+  width:110%;
+  margin-left:-5%;
+  margin-right:-5%;
+}
+.gallery .plate{margin:0}
+.gallery .plate img{
+  width:100%;height:auto;aspect-ratio:16/9;
+  object-fit:cover;object-position:center 35%;
+}
+.gallery .plate.missing::before{min-height:180px}
+.doc .gallery-cap{
+  font-family:var(--mono);font-size:9.5px;line-height:1.5;letter-spacing:.06em;
+  color:var(--ink-3);margin:0 0 38px;
+}
+
+@font-face{font-family:"LM Roman 10";src:url(fonts/lmroman10-regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"LM Roman 10";src:url(fonts/lmroman10-bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"LM Roman 10";src:url(fonts/lmroman10-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"LM Roman 10";src:url(fonts/lmroman10-bolditalic.woff2) format("woff2");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"LM Roman 17";src:url(fonts/lmroman17-regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"LM Mono 10";src:url(fonts/lmmono10-regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Latin Modern Math";src:url(fonts/latinmodern-math.woff2) format("woff2");font-display:swap}
+.paper{--lm:"LM Roman 10","Latin Modern Roman","CMU Serif",Georgia,serif;max-width:700px;font-family:var(--lm);color:var(--ink)}
+.paper p,.paper li,.paper figcaption,.paper .table-cap,.paper table{font-family:var(--lm);color:var(--ink)}
+.doc.paper p{font-size:17px;line-height:1.5;margin:0 0 .75em;hyphens:auto;-webkit-hyphens:auto;text-wrap:wrap}
+.paper b,.paper strong{font-weight:700}
+.paper em,.paper i{font-style:italic}
+.doc.paper .paper-title{font-family:"LM Roman 17",var(--lm);font-size:clamp(23px,2vw,27px);line-height:1.3;font-weight:400;color:var(--ink);text-align:center;text-wrap:balance;margin:6px 0 34px;hyphens:none}
+.paper-abstract{margin:0 6% 26px}
+.doc.paper .paper-label{font-family:var(--lm);font-weight:700;font-size:15px;text-align:center;color:var(--ink);margin:0 0 6px;hyphens:none}
+.doc.paper .paper-abstract p{font-size:15px;line-height:1.48;text-indent:1.4em}
+.doc.paper h2{font-family:var(--lm);font-size:24px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--ink);border:0;padding:0;margin:42px 0 14px;line-height:1.25;text-wrap:balance}
+.doc.paper h3{font-family:var(--lm);font-size:19px;font-weight:700;letter-spacing:0;color:var(--ink);margin:30px 0 10px;line-height:1.3;text-wrap:balance;display:flex;gap:.9em}
+.doc.paper h2{display:flex;gap:.9em}
+.paper .header-section-number{color:inherit;flex:none}
+.paper code{font-family:"LM Mono 10",ui-monospace,monospace;font-size:1em;background:none;color:inherit;padding:0;border-radius:0}
+.paper math{font-family:"Latin Modern Math",math;color:var(--ink);font-size:1.06em}
+.paper math[display="block"]{display:block;margin:14px 0 16px;overflow-x:auto;overflow-y:hidden}
+.doc .paper-fig{margin:30px 0 30px}
+.paper-fig img{background:#fff;padding:10px;box-sizing:border-box}
+.doc.paper .paper-fig figcaption,.doc.paper .table-cap{font-family:var(--lm);font-size:16px;line-height:1.48;letter-spacing:0;text-transform:none;color:var(--ink);text-align:left;margin-top:12px;hyphens:auto;-webkit-hyphens:auto}
+.paper .cap-n{font-weight:400}
+.doc.paper .table-cap{margin:30px 0 4px}
+.paper .table-wrap{margin:0 0 30px}
+.doc .paper-t1{font-family:var(--lm);font-size:15px;line-height:1.3;color:var(--ink);border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink)}
+.doc .paper-t1 thead th{font-family:var(--lm);font-size:15px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink);padding:5px 6px 5px;vertical-align:bottom;text-align:center;white-space:nowrap;border-bottom:.8px solid var(--ink)}
+.doc .paper-t1 thead th:first-child{text-align:left;padding-left:0}
+.doc .paper-t1 td{padding:2px 6px;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;text-align:center;border:0;color:var(--ink)}
+.doc .paper-t1 td:first-child{text-align:left;white-space:nowrap;padding-left:0;font-size:15px}
+.doc .paper-t1 tbody tr:first-child td{padding-top:6px}
+.doc .paper-t1 .grp-row th{font-family:var(--lm);font-style:italic;font-weight:400;font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink);text-align:left;padding:5px 0 2px;border-top:.8px solid var(--ink)}
+.doc .paper-t1 tr:has(+ .grp-row) td,.doc .paper-t1 tbody tr:last-child td{padding-bottom:6px}
+.paper-refs{list-style:none;padding:0;margin:0;font-family:var(--lm);font-size:16px;line-height:1.45;overflow-wrap:anywhere}
+.paper-refs li{position:relative;padding-left:2.4em;color:var(--ink)}
+.paper-refs li+li{margin-top:.35em}
+.paper-refs li::before{content:"[" counter(list-item) "]";position:absolute;left:0;width:2em;text-align:right}
+.paper a.text-link{color:inherit;text-decoration:underline;text-decoration-color:var(--ink-3);text-decoration-thickness:1px;text-underline-offset:.16em}
+.paper a.text-link:hover{text-decoration-color:currentColor}
+.paper a.xref,.paper figcaption a.xref{display:inline;color:var(--mocha);text-decoration:none;border-radius:2px}
+.paper a.xref:hover{text-decoration:underline;text-underline-offset:.16em}
+.paper a.xref:focus-visible,.paper a.text-link:focus-visible{outline:2px solid var(--mocha);outline-offset:2px}
+.paper :target,.paper .flash{animation:paperflash 1.6s ease-out}
+@keyframes paperflash{0%,30%{background:var(--mocha-wash)}100%{background:transparent}}
+.paper h2,.paper h3,.paper figure,.paper .table-cap,.paper-refs li{scroll-margin-top:24px}
+.paper-back{position:fixed;right:22px;bottom:22px;z-index:20;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:1px solid var(--rule);box-shadow:var(--shadow);padding:10px 14px;cursor:pointer}
+.paper-back[hidden]{display:none}
+@media (min-width:700px){.doc.paper p,.doc.paper .paper-fig figcaption,.doc.paper .table-cap,.paper-refs li{text-align:justify}}
+@media (prefers-reduced-motion:reduce){.paper :target,.paper .flash{animation:none}}
+
+.menu{display:none}
+
+@media (max-width:980px){
+  .side{
+    position:relative;top:auto;left:auto;width:100%;height:auto;
+    padding:24px 18px 16px;display:block;border-bottom:1px solid var(--rule);
+  }
+  .nav-scroll{margin-top:18px;overflow:visible;display:none}
+  .nav-scroll.on{display:block}
+  .elsewhere{padding-top:18px;display:none}
+  .elsewhere.on{display:block}
+  .menu{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:40px;margin-top:0;margin-left:auto;font-family:var(--mono);font-size:10px;
+    font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+    background:none;border:1px solid var(--rule);color:var(--ink-2);
+    padding:0 12px;cursor:pointer;
+  }
+  .side{padding:20px 16px 14px}
+  .main{margin:0;padding:12px 16px 48px}
+  .mast{height:28px}
+  .crumb{height:28px}
+  .sheet{width:100%;min-height:0;padding:40px 20px 52px;box-shadow:none}
+  .doc p,.doc .points{font-size:16px}
+  .sheet:has(> #p-about.on){display:block}
+  #p-about{padding-bottom:0}
+  #p-about h1{font-size:32px}
+  #p-about .hr{margin:26px auto 28px}
+  #p-about .doc p{font-size:17px}
+  .doc table,.doc tbody,.doc tr,.doc td{display:block;width:100%}
+  .doc thead{display:none}
+  .doc tr{padding:14px 0;border-bottom:1px solid var(--rule-soft)}
+  .doc tr:first-child{border-top:1px solid var(--rule)}
+  .doc tr:last-child{border-bottom:0}
+  .doc td{padding:0;border:0;font-size:15px}
+  .doc td:first-child{font-size:16px;margin-bottom:6px}
+  .doc td+td[data-label]::before{
+    content:attr(data-label);display:block;margin:8px 0 2px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-3);
+  }
+  .doc td:nth-child(2)::before{margin-top:0}
+  .eyebrow,
+  .entry h1,
+  .page-title,
+  .doc{width:100%}
+  .doc > .plate,
+  .doc > .gallery{width:100%;margin-left:0;margin-right:0}
+  .gallery{grid-template-columns:1fr}
+  .doc.paper p{font-size:16.5px;line-height:1.5}
+  .doc .paper-t1{display:table;width:auto;min-width:640px}
+  .doc .paper-t1 thead{display:table-header-group}
+  .doc .paper-t1 tbody{display:table-row-group}
+  .doc .paper-t1 tr{display:table-row;padding:0;border:0}
+  .doc .paper-t1 td{display:table-cell;width:auto;border:0;font-size:14px}
+  .doc .paper-t1 td:first-child{font-size:14px;margin:0}
+  .doc .paper-t1 td[data-label]::before{content:none;display:none}
+  .doc .paper-t1 tr:first-child{border-top:0}
+  .doc > .plate.paper-fig{width:auto;margin:26px -20px 28px}
+  .paper-fig img{padding:6px}
+  .doc.paper .paper-fig figcaption{padding:0 20px;font-size:15px}
+  .doc.paper .table-cap{font-size:15px}
+  .doc.paper .paper-title{font-size:22px}
+  .paper-abstract{margin:0 0 24px}
+  .doc.paper h2{font-size:21px}
+  .doc.paper h3{font-size:17.5px;gap:.7em}
+  .paper-refs{font-size:15px}
+  .paper .table-wrap{margin-left:-20px;margin-right:-20px;padding:0 20px}
+  .paper-back{right:14px;bottom:14px}
+  .hr{margin:32px auto}
+}
+</style>
+</head>
+
+<body>
+
+<aside class="side">
+  <div class="side-top">
+    <div class="side-id">
+      <a class="mark" href="/" id="mark">Mujeeb Khan</a>
+      <button class="theme" id="theme" type="button" aria-pressed="false" aria-label="Switch to dark">
+        <span class="theme-ico theme-moon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </span>
+        <span class="theme-ico theme-sun" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+    <button class="menu" id="menu" aria-expanded="false">Contents</button>
+  </div>
+
+  <div class="nav-scroll" id="navScroll"><nav id="nav" aria-label="Sections"></nav></div>
+
+  <div class="elsewhere" id="elsewhere">
+    <div class="elsewhere-h">Elsewhere</div>
+    <a class="foot-link" id="mail" href="#">Email</a>
+    <a class="foot-link" href="https://github.com/mujeeb-k" rel="noopener noreferrer">GitHub</a>
+    <a class="foot-link" href="https://www.linkedin.com/in/mujeeeb" rel="noopener noreferrer">LinkedIn</a>
+    <a class="foot-link" href="https://x.com/chiefjeeb" rel="noopener noreferrer">X</a>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="mast">
+    <div class="crumb" id="crumb"></div>
+  </div>
+
+  <article class="sheet">
+
+<article class="entry on" id="p-about"
+  data-group="About" data-title="About">
+  <h1>Hi, I'm Mujeeb</h1>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>I'm currently post-training LLMs and learning about reinforcement learning. I&nbsp;was born and raised in Dubai and am now based in New York. This site contains some notes about my projects.</p>
+  </div>
+</article>
+
+<article class="entry" id="p-ap-rl-environment" hidden
+  data-group="Projects" data-title="AP-RL Environment"
+  data-eyebrow="Projects" data-badge="New">
+  <p class="page-title">AP-RL Environment</p>
+  <div class="hr"></div>
+  <div class="doc paper">
+    <p class="paper-title">Right Actions, Incomplete Evidence: Post-Training a Small Language Model in a Stateful Accounts Payable Environment</p>
+    <div class="paper-abstract"><p class="paper-label">Abstract</p>
+<p>An agent working in back-office finance must take the correct business action and provide evidence for it. We built a stateful accounts-payable environment that evaluates both. Agents investigate blocked invoices through tool calls, wait for delayed warehouse responses, decide whether to release an invoice, keep it blocked or leave it pending, and submit reports citing the evidence used. A rule-based grader supplies both training rewards and evaluation outcomes. On 200 held-out cases, Qwen3-4B-Instruct-2507 achieved 0/200 full successes before fine-tuning, 185/200 after supervised fine-tuning (SFT), and 200/200 after GRPO initialized from SFT. In the pre-registered comparison, the paired gain over SFT was 7.5 percentage points (95% CI, 4.0 to 11.5). Both trained models selected the correct final action in all 200 cases. The difference was primarily in the evidence reports, particularly citations to canceled invoices in stale-block cases. Two additional GRPO runs outperformed SFT but did not meet the pre-specified replication criteria. In post-hoc evaluations, an additional SFT run achieved 198/200 and a one-sentence prompt reminder achieved 196/200, compared with 187/200 for SFT re-evaluated alongside them. The training recipes were not matched for tuning effort or compute. On held-out cases involving receipt reversals, final-action accuracy remained at least 99/100, while full success ranged from 38/100 to 44/100. Post-hoc analysis identified cases where the grader accepted incorrect accounting figures. In this environment, improvements in evidence reporting occurred even when business-action accuracy was already at its ceiling.</p>
+</div>
+<p><strong>Code and data:</strong> <a class="text-link" href="https://github.com/mujeeb-k/ap-hyperbolic-time-chamber" rel="noopener noreferrer">https://github.com/mujeeb-k/ap-hyperbolic-time-chamber</a></p>
+<h2 data-number="1" id="ap-introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>When a supplier’s invoice bills more than the recorded goods receipts cover, the AP system blocks it. The block records a mismatch, not its cause. A clerk must find out whether the goods arrived unrecorded, never arrived, are still being checked by the warehouse, or were already covered by a later record, and must then take the permitted action and leave an audit trail that shows why. A correct decision does not necessarily produce a complete audit trail. An agent may release or hold an invoice correctly while omitting records needed to justify that decision.</p>
+<p>Language-model agents for such work are usually post-trained by supervised fine-tuning (SFT) or by reinforcement learning (RL) from a verifiable outcome, for example with GRPO [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-1" title="Shao, Z., et al. (2024). DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models (GRPO). arXiv:2402.03300.">1</a>]. We built an environment for one AP workflow, with hidden facts and delayed information, in which task completion requires both a business action and an evidence report, and compared SFT, rejection-sampling fine-tuning (RFT) and GRPO on one 4-billion-parameter model under a pre-registered plan. One rule-based grader supplies the training reward and every evaluation, so the study can ask both how post-training changes observed task performance under a programmatic reward and what success under that program establishes.</p>
+<p>We separate two measures. An episode has the <strong>right final action</strong> when the business outcome it leaves in the records is the correct one. It is a <strong>full success</strong> when, in addition, the agent attempted nothing prohibited, filed no premature disposition, and filed a valid evidence report (<a class="xref" href="#ap-rl-environment" data-to="ap-grading-reward-and-validation">§3.3</a>). The central observation is that the two come apart. After post-training, the models nearly always took the right final action, while full success differed mainly in the reports, most sharply on a held-out family with receipt reversals (<a class="xref" href="#ap-rl-environment" data-to="ap-results">§5</a>). The grader computes the expected business outcome from the simulated policy and the underlying records, not from the agent’s report. Its report check verifies that cited values match observed records and that arithmetic expressions are internally consistent, without checking whether the resulting figures are the correct accounting quantities (<a class="xref" href="#ap-rl-environment" data-to="ap-what-measured-success-establishes">§6</a>).</p>
+<p>We first ask whether GRPO improves full success over the SFT model on frozen test cases, with both models run by greedy decoding (temperature 0). This is the only confirmatory question (RQ1, pre-registered), and GRPO did improve, through better evidence reports (<a class="xref" href="#ap-rl-environment" data-to="ap-the-sft-model-and-grpo-run-1-differed-in-their-reports-not-their-final-actions-rq1-pre-registered">§5.1</a>). A follow-up, specified in advance but exploratory, asks whether the gain replicates across three GRPO runs and on a 100-case reserve test set (RQ2). Its criteria were not met (<a class="xref" href="#ap-rl-environment" data-to="ap-the-primary-gain-did-not-meet-the-follow-ups-replication-criteria-rq2">§5.2</a>). Two post-hoc controls without RL test whether RL was needed to improve the reports (<a class="xref" href="#ap-rl-environment" data-to="ap-two-controls-without-rl-approached-grpos-test-score">§5.3</a>). Finally, we describe behavior on cases with receipt reversals, a changed policy and structurally simple cases, which the plan scheduled with no hypothesis or threshold, and on a stress set of messier records (RQ3, <a class="xref" href="#ap-rl-environment" data-to="ap-beyond-the-test-set-final-actions-held-up-better-than-reports-rq3">§5.4</a>).</p>
+<p><strong>Scope.</strong> This study examines one synthetic AP workflow with one 4B model, so consistency with its simulated policy is not correctness in real AP systems. The same rule-based grader supplies training rewards and evaluation scores, so measured success is success under that grader. The post-training recipes were not matched for data, tuning or compute, so the comparison is one of concrete recipes, not a controlled comparison of algorithms (<a class="xref" href="#ap-rl-environment" data-to="ap-post-training-recipes">§4.1</a>). The primary comparison was pre-registered, and the right-final-action and success counts come from planned measures. The emphasis on the gap between them, the scripted heuristic and the grader audits of <a class="xref" href="#ap-rl-environment" data-to="ap-what-measured-success-establishes">§6</a> came from later analyses. The results characterize these configurations, not a general advantage of RL, and the paper proposes no new algorithm or general benchmark.</p>
+<h2 data-number="2" id="ap-background-and-related-work"><span class="header-section-number">2</span> Background and Related Work</h2>
+<p><strong>Accounts payable.</strong> A company orders goods with a purchase order (PO). The receiving team records a goods receipt when goods arrive, and may later reverse a receipt. When the supplier’s invoice arrives, the AP system performs a three-way match of invoice, PO and receipts. The coverage of a PO line is its posted receipts, minus reversals, minus the quantity on other active invoices for the same line. A canceled invoice no longer consumes coverage. If the invoiced quantity exceeds coverage, the invoice is blocked. An invoice exactly equal to coverage passes. As implemented, for the invoice under review on PO line <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℓ</mi><annotation encoding="application/x-tex">\ell</annotation></semantics></math>, <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><munder><mo>∑</mo><mrow><mi>r</mi><mo>∈</mo><msub><mi>R</mi><mi>ℓ</mi></msub></mrow></munder><msub><mi>q</mi><mi>r</mi></msub><mo>−</mo><munder><mo>∑</mo><mrow><mi>v</mi><mo>∈</mo><msub><mi>V</mi><mi>ℓ</mi></msub></mrow></munder><msub><mi>q</mi><mi>v</mi></msub><mo>−</mo><munder><mo>∑</mo><mrow><mi>j</mi><mo>∈</mo><msub><mi>J</mi><mi>ℓ</mi></msub></mrow></munder><msub><mi>q</mi><mi>j</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><mi>E</mi><mo>=</mo><mi>Q</mi><mo>−</mo><mi>C</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">C=\sum_{r\in R_\ell} q_r-\sum_{v\in V_\ell} q_v-\sum_{j\in J_\ell} q_j,\qquad E=Q-C,</annotation></semantics></math> where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>ℓ</mi></msub><annotation encoding="application/x-tex">R_\ell</annotation></semantics></math> are the posted receipts on the line, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>ℓ</mi></msub><annotation encoding="application/x-tex">V_\ell</annotation></semantics></math> the posted reversals, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>J</mi><mi>ℓ</mi></msub><annotation encoding="application/x-tex">J_\ell</annotation></semantics></math> the lines on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℓ</mi><annotation encoding="application/x-tex">\ell</annotation></semantics></math> of every other invoice whose state is not canceled, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math> each record’s quantity (positive, with the movement giving the sign), and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math> the invoice’s own quantity on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℓ</mi><annotation encoding="application/x-tex">\ell</annotation></semantics></math>. The default policy blocks when <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E&gt;0</annotation></semantics></math>. The alternative policy of the policy-shift set also passes an invoice with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>≤</mo><mn>0.05</mn><mspace width="0.167em"></mspace><mi>C</mi></mrow><annotation encoding="application/x-tex">E\le 0.05\,C</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mspace width="0.167em"></mspace><mi>p</mi><mo>≤</mo></mrow><annotation encoding="application/x-tex">E\,p\le</annotation></semantics></math> €500, where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> is the PO unit price.</p>
+<p>A block may also be stale, because a later receipt or the cancellation of another invoice already covers the invoice but the match has not been re-run. The clerk releases the invoice once the records cover it, or keeps it blocked, as a shortfall when the goods never arrived or as pending when no answer can arrive in time. Releasing needs current eligibility, so the clerk must reprocess the invoice, which re-runs the match, after any change. Segregation of duties lets the clerk request a goods receipt but not record one.</p>
+<p><strong>Training methods.</strong> SFT trains a model to imitate demonstrations, here through LoRA [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-3" title="Hu, E. J., et al. (2021). LoRA: Low-Rank Adaptation of Large Language Models. arXiv:2106.09685.">3</a>] adapters, small low-rank updates that can be applied at run time or merged into the weights. RFT [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-4" title="Yuan, Z., et al. (2023). Scaling Relationship on Learning Mathematical Reasoning with Large Language Models (rejection-sampling fine-tuning). arXiv:2308.01825.">4</a>], related to reinforced self-training [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-5" title="Gulcehre, C., et al. (2023). Reinforced Self-Training (ReST) for Language Modeling. arXiv:2308.08998.">5</a>], applies SFT to the model’s own attempts that a grader accepts. GRPO [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-1" title="Shao, Z., et al. (2024). DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models (GRPO). arXiv:2402.03300.">1</a>] samples a group of rollouts per training case and, without a learned critic, moves the model toward those that score above their group’s mean (Supplement S1.1). When all rollouts in a group receive the same reward, their group-relative reward advantages are zero.</p>
+<p><strong>Related work.</strong> On largely single-turn function-calling corpora scored by exact match against gold tool calls, Laskar et al. [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-2" title="Laskar, M. T. R., Fu, X.-Y., &amp; Bhushan TN, S. (2026). SFT or RL for Tool-Calling Agents? A Controlled Study Across Data, Method, and Scale. REALM workshop at EMNLP 2026. arXiv:2609.17848.">2</a>] found SFT with LoRA strongest in distribution in 15 of 18 settings against GRPO on Qwen3 models from 0.6B to 32B. ToolRL [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-6" title="Qian, C., et al. (2025). ToolRL: Reward is All Tool Learning Needs. arXiv:2504.13958.">6</a>] studies reward design for GRPO, and Wei et al. [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-7" title="Wei, J., Pu, G., Fan, J., Xue, Y., &amp; Li, Y. (2026). To Critic Or Not To Critic. Scale AI Research (Scale Labs), November 10, 2026. https://labs.scale.com/papers/to-critic-or-not-to-critic (blog post: “To Critic or Not to Critic: GRPO vs PPO”).">7</a>] compare GRPO with critic-based PPO. Our episodes are multi-step and stateful and require an evidence report, so our results do not bear on SFT against RL in general. Unlike evaluations that score only the final state an agent leaves behind, our grader also checks an evidence report. GEPA [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-8" title="Agrawal, L. A., Tan, S., Soylu, D., Ziems, N., Khare, R., Opsahl-Ong, K., et al. (2025). GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning. arXiv:2507.19457 (listed as ICLR 2026, oral).">8</a>] optimizes prompts by natural-language reflection and reports outperforming GRPO, whereas our prompt reminder (<a class="xref" href="#ap-rl-environment" data-to="ap-post-training-recipes">§4.1</a>) is one hand-written sentence. Wallat et al. [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-9" title="Wallat, J., Heuss, M., de Rijke, M., &amp; Anand, A. (2024). Correctness is not Faithfulness in RAG Attributions. arXiv:2412.18004.">9</a>] distinguish citation correctness from citation faithfulness, and our grader checks a form of the former only. The acceptance of internally consistent but incorrect accounting figures (<a class="xref" href="#ap-rl-environment" data-to="ap-what-measured-success-establishes">§6</a>) illustrates a limitation of the evaluation protocol, rather than evidence that a model learned to exploit it [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-16" title="Shao, J., Chen, H., Zhang, W., Pan, M., &amp; Luo, B. (2026). Do Agent Benchmarks Measure Capability? Protocol Validity in the Age of Agentic AI. arXiv:2607.22368.">16</a>, <a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-17" title="Skalse, J., Howe, N., Krasheninnikov, D., &amp; Krueger, D. (2022). Defining and Characterizing Reward Gaming. Advances in Neural Information Processing Systems 35 (NeurIPS 2022). arXiv:2209.13085.">17</a>].</p>
+<h2 data-number="3" id="ap-the-environment"><span class="header-section-number">3</span> The Environment</h2>
+<p><strong>Design history.</strong> This is the second version of the environment. The first (October 21–27, 2026) did not show the agent the workflow rules the grader enforced, and its trained models rarely succeeded (Supplement S4.3). During development, Claude Sonnet 5.5 was run on 30 first-version training cases under successive prompt revisions, and its success rose from 3 to 30 as the workflow rules and then further instructions on business hours, citations and required evidence were added. This informed the redesign. Version 2 made the rules, the policy and the report requirements pages the agent sees, added a coverage calculator, and changed the grader, the demonstrations and the case sets, so the effects of individual changes cannot be isolated. Because Claude Sonnet 5.5 was used while these rules were developed, it may be favored by them, so its results are a descriptive reference, and we also report a second model family (<a class="xref" href="#ap-rl-environment" data-to="ap-reference-models">§5.5</a>).</p>
+<h3 data-number="3.1" id="ap-task-observations-and-time"><span class="header-section-number">3.1</span> Task, observations and time</h3>
+<p>Each episode is one blocked invoice. The agent plays the AP clerk and acts only through tools in four groups (Supplement S1.5 lists the full interface). To observe, <code>observe</code> reloads the current page, and <code>coverage</code> is a read-only calculator that returns the records behind coverage, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mi>Q</mi><mo>−</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">E=Q-C</annotation></semantics></math>, with no tolerance applied and never a recommendation. Its result cannot be cited, so a report must cite the records themselves. To act, <code>click</code> opens a page or presses a business control (request a delivery confirmation, request receipt posting, reprocess, release, or keep blocked with a reason), and a press is refused as stale if the records changed since the last observation. <code>fill</code> enters the quantity in a receipt-posting request. To wait, <code>advance_time</code> waits 1–480 business minutes. To report, <code>finish</code> submits the report and performs no business action.</p>
+<p>The business engine applies or refuses each control press according to role permissions and the current records. Under segregation of duties, the agent’s own “Post goods receipt” control always fails, so it can only request a posting. A posting request is accepted only after an answered confirmation, for at most the confirmed delivered total minus the receipts already posted, and only for goods physically on hand. The engine releases an invoice only after a reprocess in the same episode finds it eligible, with none of the comparison’s inputs changed since.</p>
+<p>The agent sees the records, the policy and the workflow rules, including the report requirements, as pages. Whether goods really arrived, and how long the warehouse takes to answer a confirmation request (240, 720, 1,920 or 2,880 business minutes, or never), stay hidden. An answer is recorded at once, but its content appears only when the agent next views the Delivery confirmations or Event history page (<a class="xref" href="#ap-rl-environment" data-to="ap-fig-1">Figure 1</a>). Every call except <code>advance_time</code> and <code>finish</code> costs 5 business minutes of a 09:00–17:00 business day, and a call that cannot complete by the deadline, the end of the fifth business day, is refused. An episode ends when a report is accepted, at the 40th call, or at the fifth consecutive identical call rejected with the same error.</p>
+<figure class="plate paper-fig" id="ap-fig-1"><a href="images/ap-rl-fig1.svg" aria-label="Open Figure 1 full size"><img src="images/ap-rl-fig1.svg" alt="Information flow in the environment and a worked example" loading="lazy"></a><figcaption><span class="cap-n">Figure 1:</span> The agent sees only what its tool calls return, so a warehouse answer recorded during a wait stays unseen until the agent next views the confirmations page. (a) Information flow, and the grader after the episode. (b) The worked example of <a class="xref" href="#ap-rl-environment" data-to="ap-grading-reward-and-validation">§3.3</a>, a validation case, with each step at the time its call starts.</figcaption></figure>
+<p><code>finish</code> submits the disposition (release, keep blocked or pending), the discrepancy type and the evidence. Each evidence item is an observed value, which names the record, version, field and page view where it was seen, or a derived figure, an arithmetic expression over cited values with its stated value. Because <code>finish</code> takes no business action, a correct report without the action fails.</p>
+<h3 data-number="3.2" id="ap-cases-and-splits"><span class="header-section-number">3.2</span> Cases and splits</h3>
+<p>A generator samples each case’s records, hidden facts and answer delay, and keeps a case only if the engine finds it blocked by the invoice-versus-receipt comparison alone. Each case family calls for a different investigation (Supplement Table S7), but the grader computes the expected outcome from the hidden facts and the policy’s timing, not from the family label. In <em>unrecorded-delivery</em> cases the goods arrived but were not recorded, and in <em>non-delivery</em> cases they never arrived, with the warehouse answering in time in both. <em>Late-answer</em> cases are the same with an answer that comes late but within the deadline. In <em>no-answer</em> cases no answer arrives in time, so the invoice is kept blocked as pending. In <em>stale-block</em> cases the invoice is already covered by later receipts or cancellations. The held-out <em>reversal family</em> (100 cases) combines a receipt reversal with the first four kinds.</p>
+<p>Eight splits, 1,324 cases in all, were generated from fixed seeds, deduplicated against each other and against the first version’s sets, and frozen by hash (Supplement S1.4 and Table S8). Two further sets lie outside these splits, a simple-case set (40) and a later stress set (100). The demonstration (300 cases), RL training (480 available, of which GRPO used 80) and validation (60) splits serve training and checkpoint selection. The 200-case test split was used for the primary comparison, and the 100-case reserve test set for the exploratory follow-up. An earlier, set-aside run had executed on the reserve test set, but its outputs were not inspected before the follow-up (Supplement Table S18). The reserve test set is published with this paper. The policy-shift set (44, 22 under each policy version) uses the visible alternative policy, under which some small shortfalls pass and the correct outcome and discrepancy type change. The simple-case set holds the structurally simplest cases as a check for forgetting. The stress set, built for the follow-up at the test mix, adds one or two complications that need no new rule, such as several receipts (2–5) or cancellations, a re-issued invoice or a look-alike active invoice. It was frozen before any evaluation and is published with this paper, but remains synthetic, with one supplier, one item, a fixed receipt grid and nine unit prices.</p>
+<h3 data-number="3.3" id="ap-grading-reward-and-validation"><span class="header-section-number">3.3</span> Grading, reward and validation</h3>
+<p>The grader recomputes the expected outcome from the hidden facts and the policy. Its verdict is the evaluation result, it sets the GRPO reward, and it is the main criterion for selecting RFT’s training episodes, so training and every evaluation share it. It checks three requirements (Supplement S1.5 gives further detail).</p>
+<p>1. <strong>The right final business outcome.</strong> The outcome reached is read from the final records and must equal the expected one. A release counts when the invoice ends released. A hold counts only with its supporting records and only if the agent saw the evidence for it before acting. An action completed after the deadline counts as none.</p>
+<p>2. <strong>No prohibited or premature action.</strong> A prohibited action (the pre-registration calls it a violation) is an attempt to post a goods receipt, or to release the invoice when the records before the attempt do not make it eligible. It counts as attempted whether or not it is refused, and as executed only if the engine carries it out. Pending is the expected outcome only when no valid resolution can be completed before the deadline, and the workflow rules allow it only after a final check of the Delivery confirmations page at 16:35 or later on day 5. A pending filed when the case was still resolvable, or before that check, is premature and fails the episode.</p>
+<p>3. <strong>A valid evidence report.</strong> <code>finish</code> must be accepted. Every observed value must match a record, version and value on a page the agent received. Every derived figure must recompute exactly to its stated value from its cited operands, and derived figures never count toward the required evidence. The check does not test whether the figure is the correct accounting quantity (<a class="xref" href="#ap-rl-environment" data-to="ap-what-measured-success-establishes">§6</a>). The disposition must match the outcome reached, the discrepancy type must be correct, no release may rest on unsupported evidence, and the required evidence must be present. For a release, it includes each canceled invoice on the PO line, cited by its state, because coverage excludes canceled invoices and the report must show the exclusion. This is a rule of the simulated reporting contract, not a general AP standard. Extra citations are not penalized.</p>
+<p>An episode is a full success when all three hold. The training reward of a rollout is +1 for a successful episode, 0 for a failed episode, −1 for an episode with a prohibited action, and excluded for infrastructure faults the model cannot cause. A prohibited action counts even when refused or attempted after the episode ended, and it sets −1 whatever else happened. An excluded rollout has zero advantage, and none was excluded in any GRPO run. The reward is a single terminal value, with no per-step or partial credit.</p>
+<p><strong>A worked example.</strong> In one validation case (<a class="xref" href="#ap-rl-environment" data-to="ap-fig-1">Figure 1b</a>), an invoice for 111 units faces receipts of 79 and 27 units, with a 13-unit invoice canceled after the block, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mn>79</mn><mo>+</mo><mn>27</mn><mo>−</mo><mn>0</mn><mo>−</mo><mn>0</mn><mo>=</mo><mn>106</mn></mrow><annotation encoding="application/x-tex">C=79+27-0-0=106</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mn>111</mn><mo>−</mo><mn>106</mn><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">E=111-106=5</annotation></semantics></math>. A third delivery of 5 units went unrecorded, which the warehouse confirms after 240 business minutes. The SFT model requested a confirmation, waited one business day, saw 111 units delivered, requested posting of the 5 units, reprocessed and released the invoice. Its report cites seven items, including the canceled invoice’s state and a derived total <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>1</mn></msub><mo>+</mo><msub><mi>r</mi><mn>2</mn></msub><mo>=</mo><mn>106</mn></mrow><annotation encoding="application/x-tex">r_1+r_2=106</annotation></semantics></math>, and scores <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math>.</p>
+<p><strong>Validation.</strong> A second implementation of the expected-outcome logic, written by a separate AI coding agent from the written policy alone, agreed with the grader on all 1,324 frozen cases, and on the 100 stress cases. The grader was also mutation-tested and adversarially reviewed (Supplement S4.1). These checks test the grader against its written rules, not its correctness. The second implementation verified expected business outcomes only, so it does not validate the full-success metric. No independent check of the grader’s judgment of reports exists, and human review was limited to a hand check of six cases’ expected outcomes and our reading of 10 stress cases.</p>
+<h2 data-number="4" id="ap-experimental-design"><span class="header-section-number">4</span> Experimental Design</h2>
+<h3 data-number="4.1" id="ap-post-training-recipes"><span class="header-section-number">4.1</span> Post-training recipes</h3>
+<p>All trained models start from Qwen3-4B-Instruct-2507 [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-10" title="Yang, A., et al. (Qwen Team) (2025). Qwen3 Technical Report. arXiv:2505.09388.">10</a>], which we call the base model, and use LoRA adapters of rank 32, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> 64 and dropout 0 on all linear layers (Supplement Tables S2 and S3). The SFT model trains on the base model for 2 epochs at learning rate 1e-4 with a cosine schedule, 5% warmup and effective batch 8. RFT, GRPO and the second SFT run each train a new adapter on the merged SFT model. Training used TRL and vLLM (Supplement S1.1). Each GRPO optimizer step uses 8 cases × 8 rollouts (64), a constant learning rate of 2e-5, DAPO’s token-level loss aggregation [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-11" title="Yu, Q., et al. (2025). DAPO: An Open-Source LLM Reinforcement Learning System at Scale. arXiv:2503.14476.">11</a>] and KL <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> 0.02 to the SFT model (Supplement S1.1).</p>
+<p>The SFT demonstrations are episodes of a scripted solver, a rule-based program that solves every case, on the demonstration split, with one to three sentences of reasoning before each action. Of the 300, 135 include one deliberate mistake and its recovery (Supplement S1.1). RFT learns for 1 epoch from 240 of the SFT model’s own successful attempts on 120 RL training cases, the first 2 eligible per case, selected by the grader. RFT was included as the pre-registration’s optional control for additional training on grader-selected successful attempts, not as an equally tuned primary arm, and no comparison of GRPO with RFT was pre-registered. GRPO learns from the grader’s reward on its own rollouts, 10 steps on the first 80 RL training cases. GRPO run 1 is the pre-registered run. A pre-declared rule chose its learning rate, 2e-5, from a two-rate pilot (5e-6 and 2e-5) scored on the validation set, and fixed step 10 as the checkpoint, because validation success had saturated (Supplement S1.2). GRPO runs 2 and 3 repeat the recipe exactly, with a new adapter initialization and sampling seed.</p>
+<p><strong>Tuning and compute.</strong> The SFT hyperparameters were fixed in the pre-registered plan (Supplement S1.1). The SFT model was checked on the validation set (55 of 60, with repeat runs at 56 and 56) but not tuned. GRPO’s tuning was limited to the two-rate pilot and checkpoint selection on the validation set. Neither method was shown to be optimally tuned, and the study cannot show whether GRPO would beat a well-tuned SFT. The recorded training costs have different boundaries, and none is a matched compute budget (Supplement S2.8).</p>
+<p><strong>Post-hoc controls.</strong> Two controls start from the SFT model and involve no RL. The <em>second SFT run</em> trains a new adapter on the same 300 demonstrations for one epoch, with a fresh optimizer and a schedule restarted at the 1e-4 peak. Each demonstration has then been trained on three times, but the gain cannot be attributed solely to extra exposure. The <em>prompt reminder</em> evaluates the SFT model unchanged, with one sentence appended to the frozen system prompt, “Reminder (report requirement 4): when you release an invoice, the report must cite every cancelled invoice on the PO line by its state (field state).” The sentence restates a rule already visible to the agent. Quotations from the prompt, the records and model outputs keep the environment’s spelling, “cancelled.”</p>
+<p><strong>Evaluated forms.</strong> As declared before evaluation, the SFT model was evaluated using merged weights, while RFT, GRPO and the second SFT run used their LoRA adapters at inference time. These representations are not numerically identical, which adds an asymmetry to the comparison (Supplement S1.3).</p>
+<h3 data-number="4.2" id="ap-evaluation-protocol"><span class="header-section-number">4.2</span> Evaluation protocol</h3>
+<p><strong>Primary comparison.</strong> The only confirmatory comparison is the pre-registered RQ1, greedy full success of GRPO run 1 against the SFT model on the 200 test cases, paired by case, with a paired-bootstrap 95% interval (10,000 resamples) [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-12" title="Miller, E. (2024). Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations. arXiv:2411.00640.">12</a>]. An interval that contains zero is reported as “no measurable gain,” and each GRPO run is reported separately [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-13" title="Henderson, P., Islam, R., Bachman, P., Pineau, J., Precup, D., &amp; Meger, D. (2018). Deep Reinforcement Learning That Matters. AAAI 2018, pp. 3207–3214.">13</a>]. The plan also named pass@8 (at least one of 8 samples succeeds) [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-14" title="Chen, M., et al. (2021). Evaluating Large Language Models Trained on Code (pass@k). arXiv:2107.03374.">14</a>] and pass^k (all <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math> succeed) [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-15" title="Yao, S., et al. (2024). τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains (pass^k). arXiv:2406.12045.">15</a>] among its measures, and set three success targets: greedy success of at least 40%, zero executed violations, and no more attempted violations for GRPO than for SFT.</p>
+<p><strong>Exploratory comparisons.</strong> The follow-up was prospectively specified after the primary results. It counts the test set as replicated if both new runs’ paired intervals lie above zero, and the reserve test set if all three runs’ intervals do. The controls and the grader-sensitivity analysis were specified after all earlier results were known, and the controls were fixed before evaluation. None of the exploratory comparisons is adjusted for multiple comparisons.</p>
+<p><strong>Pre-registration and deviations.</strong> The plan was tagged in the repository on November 1, 2026, before any model saw version 2 data, but its timestamp could not be independently verified. Later changes are dated deviations, 57 recorded before any test outcome was read and 20 afterwards (Supplement S4.2).</p>
+<p><strong>Evaluation rounds and baselines.</strong> Models were evaluated in three rounds, the primary evaluation, the follow-up evaluation and the controls’ evaluation. GPU greedy decoding is not exactly reproducible across rounds (<a class="xref" href="#ap-rl-environment" data-to="ap-limitations">§7</a>), so each comparison uses the SFT result from its own round (Supplement Table S4). The same SFT model scored 185 of 200 on test in the primary evaluation and 187 in the controls’. Claude Sonnet 5.5 [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-18" title="Anthropic (2026). Claude Sonnet 5.5 System Card. September 28, 2026.">18</a>] ran on the first 100 test cases, a pre-registered comparison with no direction stated, and on the stress set under an amendment, under the same prompt, tools and limits (Supplement S1.1). Inkling 2 Small [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-19" title="Thinking Machines Lab (2026). Inkling 2 Small Model Card. November 5, 2026. https://thinkingmachines.ai/model-card/inkling-2-small/">19</a>] was added post hoc under the same prompt (Supplement S6).</p>
+<h2 data-number="5" id="ap-results"><span class="header-section-number">5</span> Results</h2>
+<p><a class="xref" href="#ap-rl-environment" data-to="ap-tab-1">Table 1</a> reports each configuration on every evaluated set. Each cell gives full success, with right final actions in parentheses. For example, the SFT model reached full success on 43 of 100 reversal-family cases while taking the right final action in 99.</p>
+<p class="table-cap" id="ap-tab-1"><span class="cap-n">Table 1:</span> Full success and right final actions by configuration and evaluation set. Parentheses give the right final action where the records give it. A dash means not evaluated. Only GRPO run 1 against SFT on test is confirmatory, and all other cells are exploratory, the rows marked post hoc among them. Rows come from three evaluation rounds (<a class="xref" href="#ap-rl-environment" data-to="ap-evaluation-protocol">§4.2</a>). The heuristic is a scripted procedure scored for its final action only (<a class="xref" href="#ap-rl-environment" data-to="ap-what-measured-success-establishes">§6</a>). Reference rows give success only. Inkling 2 Small’s right final actions are in Supplement S6, and Claude Sonnet 5.5, which ran at its API’s default sampling, is not greedy. Their test column counts the first 100 test cases.</p><div class="table-wrap"><table class="paper-t1"><thead><tr><th>Model</th><th>Test<br>(200)</th><th>Reserve<br>(100)</th><th>Stress<br>(100)</th><th>Reversal<br>(100)</th><th>Policy shift<br>(44)</th><th>Simple cases<br>(40)</th></tr></thead><tbody><tr><td>Base model (Qwen3-4B)</td><td>0 (45)</td><td>–</td><td>–</td><td>0 (6)</td><td>0 (32)</td><td>0 (29)</td></tr><tr><td>SFT</td><td>185 (200)</td><td>89 (100)</td><td>80 (99)</td><td>43 (99)</td><td>23 (44)</td><td>40 (40)</td></tr><tr><td>RFT</td><td>194 (198)</td><td>96 (99)</td><td>86 (98)</td><td>–</td><td>–</td><td>–</td></tr><tr><td>GRPO run 1 (pre-registered)</td><td>200 (200)</td><td>99 (100)</td><td>84 (96)</td><td>44 (100)</td><td>22 (43)</td><td>40 (40)</td></tr><tr><td>GRPO run 2</td><td>199 (200)</td><td>99 (100)</td><td>88 (97)</td><td>44 (99)</td><td>22 (43)</td><td>40 (40)</td></tr><tr><td>GRPO run 3</td><td>193 (200)</td><td>93 (100)</td><td>84 (99)</td><td>38 (99)</td><td>23 (44)</td><td>32 (40)</td></tr><tr class="grp-row"><th colspan="7" scope="colgroup">Post hoc</th></tr><tr><td>SFT, second run</td><td>198 (200)</td><td>–</td><td>79 (98)</td><td>–</td><td>–</td><td>–</td></tr><tr><td>SFT + prompt reminder</td><td>196 (200)</td><td>–</td><td>83 (96)</td><td>–</td><td>–</td><td>–</td></tr><tr><td>SFT, re-evaluated with the controls</td><td>187 (200)</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>Scripted heuristic</td><td>(200)</td><td>–</td><td>(100)</td><td>(100)</td><td>(44)</td><td>–</td></tr><tr class="grp-row"><th colspan="7" scope="colgroup">References</th></tr><tr><td>Claude Sonnet 5.5</td><td>99 of 100</td><td>–</td><td>100</td><td>–</td><td>–</td><td>–</td></tr><tr><td>Inkling 2 Small (post hoc)</td><td>95 of 100</td><td>–</td><td>90</td><td>–</td><td>–</td><td>–</td></tr></tbody></table></div>
+<h3 data-number="5.1" id="ap-the-sft-model-and-grpo-run-1-differed-in-their-reports-not-their-final-actions-rq1-pre-registered"><span class="header-section-number">5.1</span> The SFT model and GRPO run 1 differed in their reports, not their final actions (RQ1, pre-registered)</h3>
+<p>Only the pre-registered comparison in this subsection is confirmatory, and the other results here are exploratory. The largest observed difference was between the base and SFT models. Full success on test rose from 0 to 185 of 200, and the base model reached the right final action on 45 and never filed a valid report. GRPO run 1 then succeeded on all 200 test cases, a paired difference of +7.5 points [+4.0, +11.5] over the SFT model (<a class="xref" href="#ap-rl-environment" data-to="ap-fig-2">Figure 2</a>).</p>
+<p>Both models took the same, correct final action on every test case, so the 15 cases GRPO gained were all reports the SFT model had failed. Thirteen of them are stale blocks, and 11 of those 13 are reports that omitted a canceled invoice. Of the SFT model’s 15 failures, 12 omitted a canceled-invoice citation, 11 in stale blocks and 1 in a late-answer case. In the 27 stale-block test cases that have a canceled invoice, the SFT model saw it in all 27 but cited it in 16, and GRPO run 1 cited it in all 27. In one stale-block test case, both models made the same six calls and both reasoned that “INV-296041 is cancelled and does not count,” but only GRPO’s report cited the invoice’s state (Supplement S5.1). This was not a visibility problem. The requirement was already present in the evaluated prompts (Supplement S5.1), and every SFT demonstration with a canceled invoice cites it. The omission was also visible before GRPO ran. In profiling of the SFT model on RL training cases, 46 failures lacked required evidence, 33 of them in stale-block cases (Supplement S1.2). The primary gain was concentrated in more reliable reporting of required evidence, particularly canceled-invoice citations, rather than improved final business decisions.</p>
+<p>GRPO gained 15 cases and lost none (exact McNemar <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> = 6.1e-05). The plan’s power calculation assumed 15–45% disagreement between the models, above the observed 7.5%, so its power figures do not apply directly (Supplement S2.6).</p>
+<p>Under sampled decoding with 8 samples per case, the pre-registered secondary measure pass@8 was 1.00 for SFT, RFT and GRPO run 1, so it showed no measurable gain. pass^8, which the plan listed among its measures, was 0.87 for GRPO run 1, against 0.63 for the SFT model and 0.675 for RFT, and sampled success on no-answer cases rose from 0.83 to 0.97 (Supplement Table S10). The controls of <a class="xref" href="#ap-rl-environment" data-to="ap-two-controls-without-rl-approached-grpos-test-score">§5.3</a> were not evaluated with sampling. RFT reached 194 of 200 (paired comparisons in Supplement Table S14).</p>
+<p>All three pre-registered success targets were met. Neither model attempted a prohibited action, and the simulated engine prevented the prohibited executions covered by the evaluation. The mechanisms the plan hypothesized for GRPO, better decision commitment, error recovery and fewer attempted violations, were not supported, since the SFT model already showed none of those weaknesses (Supplement S2.2). The experiment does not isolate which aspect of GRPO training changed the reports. Executed prohibited actions and incorrect releases were zero by construction in every stored greedy run (Supplement S2.7), which does not establish safety in a production system.</p>
+<figure class="plate paper-fig" id="ap-fig-2"><a href="images/ap-rl-fig2.svg" aria-label="Open Figure 2 full size"><img src="images/ap-rl-fig2.svg" alt="Paired differences against SFT with 95% intervals" loading="lazy"></a><figcaption><span class="cap-n">Figure 2:</span> On the test set and the reserve test set, every configuration except GRPO run 3 scored above its SFT baseline with an interval above zero. On the stress set, no interval against SFT excludes zero. Rows are configuration minus SFT in percentage points, with 95% paired-bootstrap intervals, against the baselines of <a class="xref" href="#ap-rl-environment" data-to="ap-evaluation-protocol">§4.2</a>. Only the pre-registered row is confirmatory.</figcaption></figure>
+<h3 data-number="5.2" id="ap-the-primary-gain-did-not-meet-the-follow-ups-replication-criteria-rq2"><span class="header-section-number">5.2</span> The primary gain did not meet the follow-up’s replication criteria (RQ2)</h3>
+<p>This follow-up was prospectively specified but exploratory. Every GRPO run scored above the SFT model on the test set and the reserve test set, and runs 1 and 2 had intervals above zero on both (<a class="xref" href="#ap-rl-environment" data-to="ap-fig-2">Figure 2</a>). Run 3’s interval included zero, at +4.0 points [−0.5, +8.5] on test and +4 [−3, +12] on the reserve test set, which alone prevents both replication criteria (<a class="xref" href="#ap-rl-environment" data-to="ap-evaluation-protocol">§4.2</a>). Every run succeeded on all 15 test cases the SFT model failed, and runs 1–3 lost 0, 1 and 7 test cases. The three runs give limited evidence about variation across training runs. They share the starting checkpoint, data and recipe, and runs 1 and 2 produced identical transcripts on most cases (<a class="xref" href="#ap-rl-environment" data-to="ap-limitations">§7</a>, Supplement S2.6). RFT’s gain on the reserve test set is in Supplement S2.5. The improvement therefore did not meet the pre-specified replication criteria, and the primary result stands as a single-run finding.</p>
+<h3 data-number="5.3" id="ap-two-controls-without-rl-approached-grpos-test-score"><span class="header-section-number">5.3</span> Two controls without RL approached GRPO’s test score</h3>
+<p>These controls are post hoc. Two interventions without RL improved the SFT model on test. A second SFT run raised success to 198 of 200, and a one-sentence reminder of the citation requirement raised it to 196, against 187 for the SFT model re-evaluated alongside them. Much of the reporting improvement seen after GRPO was therefore also achievable through simpler interventions. Because the reminder restates a rule already in the prompt, its effect suggests that part of the original failure was a failure to apply an available instruction. The second SFT run’s gain was +5.5 points [+2.0, +9.0], and it cited the canceled invoice in 27 of 27 stale-block cases. The reminder’s was +4.5 [+2.0, +7.5], and it cited the invoice in 24 of 27. Against GRPO run 1, across evaluations, the second SFT run is −1.0 [−2.5, 0.0] and the reminder −2.0 [−4.0, −0.5]. That percentile-bootstrap interval excludes zero, while the exact McNemar test gives <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> = 0.125. With few discordant cases, in one of nine unadjusted comparisons of the controls with RFT, the GRPO runs and each other on test, we do not read it as a resolved difference. Coming within 2 and 4 cases of GRPO run 1 across evaluations does not make the controls equivalent to GRPO. The study therefore cannot attribute GRPO’s improvement uniquely to RL, nor rule out a contribution from RL. The results are consistent with the SFT model not reliably applying the reporting requirement, but they do not identify whether additional training, prompting or reward changed that behavior for the same reason. On the stress set, neither control showed a measurable gain (79 and 83 against the follow-up’s 80, with no same-evaluation baseline or measure of drift), and their training was not compute-matched with GRPO’s.</p>
+<h3 data-number="5.4" id="ap-beyond-the-test-set-final-actions-held-up-better-than-reports-rq3"><span class="header-section-number">5.4</span> Beyond the test set, final actions held up better than reports (RQ3)</h3>
+<p>These evaluations were scheduled with no hypothesis or threshold, and the analyses of their failures are post hoc.</p>
+<p><strong>Receipt reversals.</strong> Every case in this family adds a receipt reversal, which coverage must subtract. Final actions were right on 99–100 of 100 cases, but full success was 38–44 (<a class="xref" href="#ap-rl-environment" data-to="ap-tab-1">Table 1</a>). In most failures (87–95% per model, <a class="xref" href="#ap-rl-environment" data-to="ap-what-measured-success-establishes">§6</a>), the agent reported the correct coverage quantity but wrote an incomplete calculation, nearly always omitting the reversed receipt from the expression. The grader rejected these reports because the stated calculation did not reproduce the stated quantity. Most of these expressions are shaped like a demonstration’s, although no demonstration contains a reversal (Supplement S3). A correct number does not show that the model computed it, since the coverage calculator returns it. GRPO showed no consistent improvement. Runs 1 and 2 scored one case above SFT. Run 3’s difference, −5 points [−10, −1], excludes zero by the bootstrap interval but not by the exact McNemar test (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> = 0.0625), so we do not read it as a resolved loss.</p>
+<p><strong>Policy shift.</strong> Final actions were right on 43–44 of 44 cases. In 21 of the 22 changed-rule cases, the SFT model and GRPO run 1 each chose the correct final action but reported the outdated discrepancy type, after opening the Active policy page that showed the changed tolerance. This suggests that reaching the correct outcome did not ensure that a report reflected the applicable rule. The records do not show whether the final actions came from the tolerance or from the system’s reprocessing. No GRPO run scored above SFT.</p>
+<p><strong>Simple cases.</strong> The SFT model and GRPO runs 1 and 2 scored 40 of 40. Run 3 scored 32, every failure the same error, citing a record at the wrong version, with the right final action, an error the SFT model makes about once per 200-case test run.</p>
+<p><strong>Stress set.</strong> RFT and the GRPO runs scored 84–88 of 100, against 80 for SFT, and the two controls 79 and 83. None showed a statistically measurable gain over SFT (<a class="xref" href="#ap-rl-environment" data-to="ap-fig-2">Figure 2</a>), and the set gives no reliable ordering of the seven 4B configurations (Supplement S2.5). Right final actions stayed at 96–99 of 100, and most failures came from the reports, chiefly derived-figure failures and canceled-invoice omissions (Supplement S2.3).</p>
+<h3 data-number="5.5" id="ap-reference-models"><span class="header-section-number">5.5</span> Reference models</h3>
+<p>Two reference models received no task-specific fine-tuning in this study and used the same task instructions and tool interface, and one of them, Inkling 2 Small, was added post hoc. Claude Sonnet 5.5 succeeded on 99 of the first 100 test cases and all 100 stress cases. Inkling 2 Small succeeded on 95 and 90. These results show that another model family could complete the simulated workflow under the shared interface, although they do not establish that the environment or prompt is model-neutral. On the stress set, both reference models had higher observed success than any evaluated 4B configuration, and neither omitted a required canceled-invoice citation. They are not matched arms and are compared descriptively, not as a ranking. The results do not identify the cause of the 4B models’ reporting failures (Supplement S6).</p>
+<h2 data-number="6" id="ap-what-measured-success-establishes"><span class="header-section-number">6</span> What Measured Success Establishes</h2>
+<p>No independent grader has checked the report judgments, and no AP practitioner or auditor has reviewed the workflow rules, policy or grader. The analyses below are post hoc and change no recorded score (Supplement S3).</p>
+<p><strong>Final actions are procedurally attainable.</strong> A scripted procedure, adjusted once on validation cases and then held fixed before evaluation on four held-out sets (Supplement S3.1), uses only the visible pages and controls. It reprocesses and releases if the system reports the invoice eligible, and otherwise requests a confirmation, waits for the answer and acts on it. It never calls the coverage calculator, reads the Active policy page or subtracts other invoices, yet it reached the right final action on all 444 cases of the test, reversal, policy-shift and stress sets, with no attempted prohibited action. The simulated system’s eligibility check does part of the decision work, so a high right-final-action rate alone does not show that a model can work out the outcome. The procedure files no scored report, was not evaluated for full success and says nothing about the trained models’ procedure.</p>
+<p><strong>Sensitivity to one grading rule.</strong> A derived figure’s expression must recompute exactly to its stated value, so a correct value with an incomplete expression fails. The written requirement asks for a complete audit trail, so the rule evaluates the completeness of the supporting calculation. Re-scored under a variant that accepts an incomplete expression when its stated value equals the grader’s own quantity, success on the reversal family rises from 38–44 to 92–97 and on the stress set from 79–88 to 84–93 (Supplement S2.4). On test it changes no model’s success count, so the primary comparison is unchanged. The variant is not a corrected score, and the grader remains the measure of record.</p>
+<p><strong>Accepted figures that are not the correct quantity.</strong> The same rule cuts both ways. The grader can reject a correct number because its supporting formula is incomplete, as in the reversal-family failures, and it can accept an incorrect number because its formula is internally consistent, since no check compares a stated figure with the correct quantity. In an audit of 3,108 successes, 3,099 had an accepted derived figure, and at least 9 of those (0.29%) carried a coverage figure that omits a required record or subtracts a canceled invoice. This is a lower bound, not the grader’s overall false-acceptance rate, across 34 evaluated model-and-set combinations, including three cross-evaluations not in <a class="xref" href="#ap-rl-environment" data-to="ap-tab-1">Table 1</a> and excluding the reserve test set. In one reversal-family case, an accepted report stated coverage as 76 + 65 − 21 = 120, omitting a four-unit receipt reversal. The correct coverage was 116. The report nevertheless passed, because its expression was internally consistent, its disposition was correct and the remaining report requirements were satisfied (Supplement S5.2). None of the 9 is in the primary comparison, and two of the reminder’s 196 test successes are among them. Such figures were accepted from SFT models, with and without the reminder, whose training used neither the grader’s reward nor grader-selected attempts, so the study does not show that any model learned to exploit this weakness (Supplement S3.2 and S5.2). These successes stand as scored, but grader acceptance does not establish correct accounting. Three further limitations of the grader and environment are in <a class="xref" href="#ap-rl-environment" data-to="ap-limitations">§7</a>.</p>
+<p><strong>Citation correctness, not faithfulness.</strong> The report check establishes a form of citation correctness, that each cited value matches a record, version and value on a page the agent received and that each derived figure recomputes. It establishes neither that every stated accounting quantity is correct nor citation faithfulness, that is, whether the cited records informed the decision [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-9" title="Wallat, J., Heuss, M., de Rijke, M., &amp; Anand, A. (2024). Correctness is not Faithfulness in RAG Attributions. arXiv:2412.18004.">9</a>]. Nor does it check operand names, and nearly all passing reversal-family reports name the reversal as if it were an invoice, which an auditor could misread.</p>
+<p><strong>Behavior after training and training-signal limits.</strong> After training, GRPO run 1 cited the state of a non-canceled invoice in 21 of its 200 greedy test episodes, all in cases without a canceled invoice, against 2 for SFT, which suggests a broader change in reporting behavior without identifying its cause (Supplement S2.1). Profiling of the SFT model before GRPO (Supplement S1.2) cannot identify which case families supplied GRPO’s reward signal, because the profiled cases may differ from the training cases and the GRPO rollouts were not retained. Given these limits, the study does not establish that GRPO is better than RFT, or that training on graded attempts transfers better to messier data.</p>
+<h2 data-number="7" id="ap-limitations"><span class="header-section-number">7</span> Limitations</h2>
+<p><strong>One synthetic workflow and one model size.</strong> The study covers receipt-related invoice blocks from one generator, each case one open PO line with one invoice line under review, and does not model amended or blanket purchase orders, multi-line invoices, freight and tax charges, inconsistent supplier master data, and similar variations. The business controls are simplified. The primary gain lies almost entirely in stale blocks, which real AP systems often re-check automatically, whereas here the agent must do it. We used one 4B model and LoRA only. The Claude reference may be favored by rules developed with it (<a class="xref" href="#ap-rl-environment" data-to="ap-the-environment">§3</a>). The held-out sets are synthetic, so results on them do not show real-world generalization, the evidence of transfer to more complex cases is limited to the stress set, and presentation robustness was not tested.</p>
+<p><strong>A shared grader with known gaps.</strong> The grader that supplied the reward also scored every evaluation, and no independent judge of reports exists (<a class="xref" href="#ap-rl-environment" data-to="ap-grading-reward-and-validation">§3.3</a>). Beyond the derived-figure rule of <a class="xref" href="#ap-rl-environment" data-to="ap-what-measured-success-establishes">§6</a>, three further limits differ in kind. The grader does not check the quantity of a receipt posting, so posting only the shortfall passes even when more units arrived unrecorded, a measurement gap. Look-alike invoices test careful reading, not duplicate detection, because the simulated policy has no duplicate-payment rule, an unmodeled business process rather than a grader defect. A re-issued invoice carries no link to the one it replaces and is recognizable only by its quantity and timing, which limits what the agent can observe. We recorded these on November 7, 2026, before any model ran on the stress set, and did not measure how many scored cases they affect (Supplement S3.3).</p>
+<p><strong>An asymmetric and saturated comparison.</strong> Besides the tuning asymmetry (<a class="xref" href="#ap-rl-environment" data-to="ap-post-training-recipes">§4.1</a>), GRPO trained briefly, 10 steps on 80 cases. The test set is at ceiling for GRPO, and validation success saturated, so checkpoint selection was degenerate. GRPO’s training rollouts and checkpoint selection used bf16-merged weights, whereas final evaluations used runtime adapters. These representations are numerically different, and the effect on training or checkpoint selection was not tested (Supplement S1.3).</p>
+<p><strong>Learning from terminal rewards.</strong> GRPO used 64 rollouts per update on episodes of up to 40 tool calls, with one terminal reward. Many profiled groups would have carried no reward signal (Supplement S1.2), and one step of run 3 had every rollout rewarded (post hoc). Training rollouts were not stored, and we did not vary these factors, compare with a critic-based method such as PPO [<a class="xref cite" href="#ap-rl-environment" data-to="ap-ref-7" title="Wei, J., Pu, G., Fan, J., Xue, Y., &amp; Li, Y. (2026). To Critic Or Not To Critic. Scale AI Research (Scale Labs), November 10, 2026. https://labs.scale.com/papers/to-critic-or-not-to-critic (blog post: “To Critic or Not to Critic: GRPO vs PPO”).">7</a>] or measure sample efficiency.</p>
+<p><strong>Limited runs and nondeterminism.</strong> RFT and the second SFT run ran once each, and the three GRPO runs show two behaviors, splitting at the first tool call, with runs 1 and 2 producing identical transcripts on most cases (Supplement S2.6). Three runs therefore cannot estimate run-to-run variance well. The SFT model’s two greedy evaluations on test agree on 193 of 200 transcripts, and 4 of the other 7 change the outcome.</p>
+<p><strong>Reproducibility.</strong> The release at the URL above contains the environment, grader, case generator, frozen case files, the evaluation and analysis code, per-case outcomes for every reported run except Inkling 2 Small, whose aggregate counts are reported, three example episodes, and the pre-registration record with its timestamp receipt. The reported counts, intervals and paired comparisons can be recomputed from the per-case outcomes without a GPU. Full episode transcripts are not released, so the text-level analyses, the false-pass audit and the template matching, cannot be independently recomputed. The frozen case files include the reserve and stress sets, so they are no longer held out. Their earlier held-out evaluations stand, but they cannot serve as held-out sets for future experiments. Retraining from the same seed may differ slightly, because GPU sampling was not deterministic in our runs (above). Some environment details were not recorded (Supplement S1.1).</p>
+<h2 data-number="8" id="ap-discussion"><span class="header-section-number">8</span> Discussion</h2>
+<p>The largest observed difference was between the base and SFT models, from 0 to 185 of 200 test cases, and in the pre-registered comparison GRPO raised full success to 200. That gain did not meet the follow-up’s replication criteria and stands as a single-run finding, and post-hoc controls without RL reached similar test scores, so it cannot be attributed uniquely to RL. It shows neither that any recipe taught independent accounting reasoning nor that the models learned no useful policy.</p>
+<p>The study distinguishes three notions of correctness that are easy to conflate: the final business action, full success under the programmatic grader, and the correctness of the supporting accounting evidence. They came apart in three different ways. The post-hoc scripted heuristic reached correct final actions without a scored evidence report. In the reversal family, correct outcomes and correct stated quantities coexisted with incomplete report expressions that the grader rejected. The post-hoc audit found grader-accepted reports with wrong accounting quantities. Whether GRPO would beat a well-tuned SFT or an optimized prompt, and whether an independent auditor would accept the reports, remain open.</p>
+<p>In practice, this workflow suggests scoring business decisions and evidence separately, and comparing RL with cheaper interventions aimed at the same failure, including prompt optimization, which this study did not test. It also suggests checking a shared training and evaluation grader against independent accounting and simple procedural baselines, and confirming before training that every rule the grader enforces is visible to the agent. These implications come from this workflow and this grader and were not tested as general rules for SFT or RL.</p>
+<p><strong>Acknowledgments.</strong> This work was supported in part by the Tinker research grant from Thinking Machines Lab.</p>
+<p><strong>AI disclosure.</strong> The software was written and reviewed largely with AI coding agents. The manuscript was drafted and edited with AI assistance. We reviewed all content and take full responsibility for it.</p>
+<h2 class="unnumbered" id="ap-references">References</h2>
+<ol class="paper-refs"><li id="ap-ref-1">Shao, Z., et al. (2024). DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models (GRPO). <a class="text-link" href="https://arxiv.org/abs/2402.03300" rel="noopener noreferrer">arXiv:2402.03300</a>.</li><li id="ap-ref-2">Laskar, M. T. R., Fu, X.-Y., &amp; Bhushan TN, S. (2026). SFT or RL for Tool-Calling Agents? A Controlled Study Across Data, Method, and Scale. REALM workshop at EMNLP 2026. <a class="text-link" href="https://arxiv.org/abs/2609.17848" rel="noopener noreferrer">arXiv:2609.17848</a>.</li><li id="ap-ref-3">Hu, E. J., et al. (2021). LoRA: Low-Rank Adaptation of Large Language Models. <a class="text-link" href="https://arxiv.org/abs/2106.09685" rel="noopener noreferrer">arXiv:2106.09685</a>.</li><li id="ap-ref-4">Yuan, Z., et al. (2023). Scaling Relationship on Learning Mathematical Reasoning with Large Language Models (rejection-sampling fine-tuning). <a class="text-link" href="https://arxiv.org/abs/2308.01825" rel="noopener noreferrer">arXiv:2308.01825</a>.</li><li id="ap-ref-5">Gulcehre, C., et al. (2023). Reinforced Self-Training (ReST) for Language Modeling. <a class="text-link" href="https://arxiv.org/abs/2308.08998" rel="noopener noreferrer">arXiv:2308.08998</a>.</li><li id="ap-ref-6">Qian, C., et al. (2025). ToolRL: Reward is All Tool Learning Needs. <a class="text-link" href="https://arxiv.org/abs/2504.13958" rel="noopener noreferrer">arXiv:2504.13958</a>.</li><li id="ap-ref-7">Wei, J., Pu, G., Fan, J., Xue, Y., &amp; Li, Y. (2026). To Critic Or Not To Critic. Scale AI Research (Scale Labs), November 10, 2026. <a class="text-link" href="https://labs.scale.com/papers/to-critic-or-not-to-critic" rel="noopener noreferrer">https://labs.scale.com/papers/to-critic-or-not-to-critic</a> (blog post: “To Critic or Not to Critic: GRPO vs PPO”).</li><li id="ap-ref-8">Agrawal, L. A., Tan, S., Soylu, D., Ziems, N., Khare, R., Opsahl-Ong, K., et al. (2025). GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning. <a class="text-link" href="https://arxiv.org/abs/2507.19457" rel="noopener noreferrer">arXiv:2507.19457</a> (listed as ICLR 2026, oral).</li><li id="ap-ref-9">Wallat, J., Heuss, M., de Rijke, M., &amp; Anand, A. (2024). Correctness is not Faithfulness in RAG Attributions. <a class="text-link" href="https://arxiv.org/abs/2412.18004" rel="noopener noreferrer">arXiv:2412.18004</a>.</li><li id="ap-ref-10">Yang, A., et al. (Qwen Team) (2025). Qwen3 Technical Report. <a class="text-link" href="https://arxiv.org/abs/2505.09388" rel="noopener noreferrer">arXiv:2505.09388</a>.</li><li id="ap-ref-11">Yu, Q., et al. (2025). DAPO: An Open-Source LLM Reinforcement Learning System at Scale. <a class="text-link" href="https://arxiv.org/abs/2503.14476" rel="noopener noreferrer">arXiv:2503.14476</a>.</li><li id="ap-ref-12">Miller, E. (2024). Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations. <a class="text-link" href="https://arxiv.org/abs/2411.00640" rel="noopener noreferrer">arXiv:2411.00640</a>.</li><li id="ap-ref-13">Henderson, P., Islam, R., Bachman, P., Pineau, J., Precup, D., &amp; Meger, D. (2018). Deep Reinforcement Learning That Matters. AAAI 2018, pp. 3207–3214.</li><li id="ap-ref-14">Chen, M., et al. (2021). Evaluating Large Language Models Trained on Code (pass@k). <a class="text-link" href="https://arxiv.org/abs/2107.03374" rel="noopener noreferrer">arXiv:2107.03374</a>.</li><li id="ap-ref-15">Yao, S., et al. (2024). τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains (pass^k). <a class="text-link" href="https://arxiv.org/abs/2406.12045" rel="noopener noreferrer">arXiv:2406.12045</a>.</li><li id="ap-ref-16">Shao, J., Chen, H., Zhang, W., Pan, M., &amp; Luo, B. (2026). Do Agent Benchmarks Measure Capability? Protocol Validity in the Age of Agentic AI. <a class="text-link" href="https://arxiv.org/abs/2607.22368" rel="noopener noreferrer">arXiv:2607.22368</a>.</li><li id="ap-ref-17">Skalse, J., Howe, N., Krasheninnikov, D., &amp; Krueger, D. (2022). Defining and Characterizing Reward Gaming. Advances in Neural Information Processing Systems 35 (NeurIPS 2022). <a class="text-link" href="https://arxiv.org/abs/2209.13085" rel="noopener noreferrer">arXiv:2209.13085</a>.</li><li id="ap-ref-18">Anthropic (2026). Claude Sonnet 5.5 System Card. September 28, 2026.</li><li id="ap-ref-19">Thinking Machines Lab (2026). Inkling 2 Small Model Card. November 5, 2026. <a class="text-link" href="https://thinkingmachines.ai/model-card/inkling-2-small/" rel="noopener noreferrer">https://thinkingmachines.ai/model-card/inkling-2-small/</a></li></ol>
+  </div>
+</article>
+
+<article class="entry" id="p-league-of-agents" hidden
+  data-group="Projects" data-title="League of Agents"
+  data-eyebrow="Projects">
+  <p class="page-title">League of Agents</p>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>Coding agents write code faster than people can review it. I built League of Agents to make that work easier to see and check.</p>
+    <p>It puts your codebase on a zoomable map. You point to the code you want changed, review what the agent did, and keep or undo each run.</p>
+    <p><a class="text-link" href="https://leagueofagents.dev/" rel="noopener noreferrer">Try League of Agents</a></p>
+
+    <h3>Why I built it</h3>
+    <p>Working with coding agents shifts more of the job toward giving instructions and reviewing changes. Most agent interfaces still center on a chat panel or terminal.</p>
+    <p>Those show what the agent says. A diff shows which lines changed. But understanding a change also means knowing where it sits in the project and what depends on it.</p>
+    <p>I wanted to make three things easier:</p>
+    <ul class="points">
+      <li><b>See what changed.</b> Find every changed file in the context of the codebase.</li>
+      <li><b>Control the scope.</b> Select where the agent should work and check whether it stayed there.</li>
+      <li><b>Check the result.</b> Review the actual diff and check results alongside the agent&rsquo;s summary.</li>
+    </ul>
+    <p>As agents get faster and more runs happen at once, there is more code to review. The time available to review it does not grow with them.</p>
+
+    <h3>How it works</h3>
+    <p>The codebase is the canvas. Zoom out to see folders and files. Zoom in to read and edit code. Connections show which files import each other, and a minimap helps you move around.</p>
+    <p>The workflow is simple:</p>
+    <ol class="points">
+      <li><b>Choose the code.</b> Select a file or block of code and give the agent an instruction.</li>
+      <li><b>Run the agent.</b> Scope is checked against the resulting diff. Edits outside that scope are blocked where the agent supports it.</li>
+      <li><b>Review the change.</b> Each run records the before, after, diff and project check results. Changed files are marked on the map.</li>
+      <li><b>Keep or undo.</b> Keep the work or restore the files from the snapshot taken before the run.</li>
+    </ol>
+    <p>You can also edit directly on the canvas. Manual edits share the same history as agent runs. After an edit, <b>Propagate</b> asks the agent to update the code that depends on it. <b>Watch mode</b> captures changes made by other agents or editors and groups them into runs.</p>
+
+    <h3>The main decisions</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Decision</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Show the code on the canvas</td><td>Review needs the code and its surrounding context.</td></tr>
+          <tr><td>Review one run at a time</td><td>Each run is a piece of work you can inspect, keep or undo.</td></tr>
+          <tr><td>Check scope against the diff</td><td>Asking an agent to stay within a file does not guarantee it will.</td></tr>
+          <tr><td>Use Git snapshots for diffs and undo</td><td>They record the actual changes without touching the user&rsquo;s branch or staging area.</td></tr>
+          <tr><td>Connect existing agents</td><td>People should be able to use the agent they already work with.</td></tr>
+          <tr><td>Support manual editing</td><td>Reviewing often leads to making a change yourself. Larger edits can still open in Cursor or VS Code.</td></tr>
+          <tr><td>Record check results with each run</td><td>The review should include evidence of what passed or failed.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>I kept the minimap for navigation, the interface needs to make code easy to read and changes easy to find.</p>
+
+    <h3>Setup</h3>
+    <p>Start with <code>npx leagueofagents-cli</code> or paste the setup instruction into your agent. It works with Claude Code, Codex, Cursor and others.</p>
+    <p>League of Agents runs on your machine and does not send your code anywhere itself. It asks before installing hooks and uninstalls cleanly.</p>
+    <p>Free and open source under Apache 2.0.</p>
+  </div>
+</article>
+
+<article class="entry" id="p-geist" hidden
+  data-group="Projects" data-title="Geist"
+  data-eyebrow="Projects">
+  <p class="page-title">Geist</p>
+  <div class="hr"></div>
+  <div class="doc">
+    <p>Geist is a research system for people who cover public companies. It keeps the facts, the evidence, and your view of a company together as new information arrives.</p>
+    <p><a class="text-link" href="https://geist.up.railway.app/" rel="noopener noreferrer">Try Geist</a> (Work in Progress)</p>
+    <h3>Research</h3>
+    <p>Ask what a company reported and Geist returns the figure, the fiscal period, and the exact place it came from in the SEC filing.</p>
+    <p>The evidence is part of the answer. You can open the filing and check it yourself. If Geist cannot establish the fact from the available evidence, it refuses instead of filling in the gap.</p>
+    <h3>Keep the research</h3>
+    <p>A useful answer is usually the beginning of the work, not the end.</p>
+    <p>You can keep the evidence in a living memo for the company: what you believe, what supports or challenges that view, what could change your mind, and what you want to watch next.</p>
+    <h3>When the company reports again</h3>
+    <p>The next filing should not mean starting over.</p>
+    <p>Geist brings the new filing back to the research you already have and helps you see what supports the existing view, what contradicts it, and what remains unresolved.</p>
+    <p>Over time, each filing becomes another piece of evidence in the same body of research.</p>
+    <h3>Why the evidence matters</h3>
+    <p>I asked Perplexity and Geist the same question about Microsoft's reported cloud revenue. They returned different answers.</p>
+    <p>I assumed Geist was wrong. I checked the filing manually, and Geist had resolved the right figure.</p>
+    <p><a class="text-link" href="https://www.perplexity.ai/search/fff8296f-d749-45a3-b8dd-99c305b67c7b" rel="noopener noreferrer">The same question asked to Perplexity</a></p>
+    <p>A number can appear in the right filing and still answer the wrong question. It may belong to a different metric, period, segment, or column in the table. A citation tells you where a number came from. It does not necessarily tell you what that number means.</p>
+    <p>Geist is built around that distinction.</p>
+    <p>Models help interpret the question and find relevant information. The filing remains the source of truth. Geist establishes the financial fact against the underlying SEC evidence before returning it.</p>
+  </div>
+</article>
+
+  </article>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var all   = [].slice.call(document.querySelectorAll("article.entry"));
+  var home  = document.getElementById("p-about");
+  var mark  = document.getElementById("mark");
+  var nav   = document.getElementById("nav");
+  var crumb = document.getElementById("crumb");
+  var menu  = document.getElementById("menu");
+  var navS  = document.getElementById("navScroll");
+  var els   = document.getElementById("elsewhere");
+
+  var mail = document.getElementById("mail");
+  if (mail) {
+    var u = "k.mujeeb", d = "outlook.com";
+    mail.href = "mailto:" + u + "@" + d;
+  }
+
+  // Articles carry a "p-" id prefix so the URL hash never matches an element
+  // and the browser can't jump-scroll into the page on load or navigation.
+  function slug(a){ return a.id.slice(2); }
+
+  function esc(s){
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+  }
+
+  [].forEach.call(document.querySelectorAll(".plate img"), function(img){
+    img.addEventListener("error", function(){ img.parentNode.className += " missing"; });
+    if(img.complete && img.naturalWidth === 0) img.parentNode.className += " missing";
+  });
+
+  [].forEach.call(document.querySelectorAll(".doc table"), function(t){
+    var heads = [].map.call(t.querySelectorAll("thead th"), function(th){ return th.textContent; });
+    [].forEach.call(t.querySelectorAll("tbody tr"), function(tr){
+      [].forEach.call(tr.children, function(td, i){ if(heads[i]) td.setAttribute("data-label", heads[i]); });
+    });
+  });
+
+  all.forEach(function(a){
+    var e = a.getAttribute("data-eyebrow");
+    if(!e) return;
+    var d = document.createElement("div");
+    d.className = "eyebrow";
+    d.textContent = e;
+    a.insertBefore(d, a.firstChild);
+  });
+
+  var order = ["Projects"];
+  var bucket = {};
+  [].forEach.call(document.querySelectorAll("article.entry[data-group]"), function(a){
+    var g = a.getAttribute("data-group");
+    (bucket[g] = bucket[g] || []).push(a);
+  });
+
+  order.forEach(function(g){
+    var items = bucket[g] || [];
+    if(!items.length) return;
+    var d = document.createElement("div");
+    d.className = "grp";
+    if(items.length === 1 && items[0].getAttribute("data-title") === g){
+      d.innerHTML = '<a class="grp-h" href="#'+slug(items[0])+'">'+esc(g)+'</a>';
+      nav.appendChild(d);
+      return;
+    }
+    var h = '<div class="grp-h">'+esc(g)+'</div><ul>';
+    items.forEach(function(a){
+      var b = a.getAttribute("data-badge");
+      h += '<li><a class="nlink" href="#'+slug(a)+'">'+esc(a.getAttribute("data-nav") || a.getAttribute("data-title"))+
+        (b ? '<span class="badge">'+esc(b)+'</span>' : '')+'</a></li>';
+    });
+    d.innerHTML = h + "</ul>";
+    nav.appendChild(d);
+  });
+
+  function show(id){
+    var t = id ? document.getElementById("p-"+id) : null;
+    if(!t || t.className.indexOf("entry") === -1) t = home;
+    all.forEach(function(a){
+      a.className = "entry";
+      a.hidden = true;
+    });
+    t.className = "entry on";
+    t.hidden = false;
+
+    [].forEach.call(nav.querySelectorAll("a"), function(l){
+      if(l.getAttribute("href") === "#"+slug(t)) l.setAttribute("aria-current","page");
+      else l.removeAttribute("aria-current");
+    });
+    if(t === home) mark.setAttribute("aria-current","page");
+    else mark.removeAttribute("aria-current");
+
+    if(t === home && location.hash){
+      history.replaceState(null, "", location.pathname || "/");
+    }
+
+    var g  = t.getAttribute("data-group");
+    var ti = t.getAttribute("data-title");
+    crumb.innerHTML = (t === home)
+      ? '<b>Mujeeb Khan</b>'
+      : 'Mujeeb Khan<span class="sep">/</span>'+esc(g)+'<span class="sep">/</span><b>'+esc(ti)+'</b>';
+
+    document.title = "Mujeeb Khan";
+    window.scrollTo(0,0);
+    navS.className = "nav-scroll";
+    els.className = "elsewhere";
+    menu.setAttribute("aria-expanded","false");
+  }
+
+  window.addEventListener("hashchange", function(){ show(location.hash.slice(1)); });
+  menu.addEventListener("click", function(){
+    var open = navS.className.indexOf("on") > -1;
+    navS.className = open ? "nav-scroll" : "nav-scroll on";
+    els.className  = open ? "elsewhere"  : "elsewhere on";
+    menu.setAttribute("aria-expanded", open ? "false" : "true");
+  });
+
+  var themeBtn = document.getElementById("theme");
+  function applyTheme(dark, persist){
+    if(dark) document.documentElement.setAttribute("data-theme","dark");
+    else document.documentElement.removeAttribute("data-theme");
+    if(themeBtn){
+      themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+      themeBtn.setAttribute("aria-label", dark ? "Switch to light" : "Switch to dark");
+    }
+    if(persist){
+      try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch(e) {}
+    }
+  }
+  applyTheme(document.documentElement.getAttribute("data-theme") === "dark", false);
+  if(themeBtn){
+    themeBtn.addEventListener("click", function(){
+      applyTheme(document.documentElement.getAttribute("data-theme") !== "dark", true);
+    });
+  }
+
+  // Paper cross-references: scroll within the page without touching the hash router.
+  (function(){
+    var paper = document.querySelector("#p-ap-rl-environment .paper");
+    if(!paper) return;
+    var back = document.createElement("button");
+    back.type = "button"; back.className = "paper-back"; back.hidden = true;
+    back.textContent = "\u2191 Back";
+    document.body.appendChild(back);
+    var stack = [];
+    function flash(el){ el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); }
+    paper.addEventListener("click", function(ev){
+      var a = ev.target.closest && ev.target.closest("a.xref");
+      if(!a) return;
+      var t = document.getElementById(a.getAttribute("data-to"));
+      if(!t) return;
+      ev.preventDefault();
+      stack.push({y: window.scrollY, el: a});
+      t.scrollIntoView({block: t.tagName === "FIGURE" ? "center" : "start"});
+      flash(t);
+      back.hidden = false;
+    });
+    back.addEventListener("click", function(){
+      var p = stack.pop();
+      if(p){ window.scrollTo(0, p.y); p.el.focus({preventScroll:true}); flash(p.el); }
+      back.hidden = !stack.length;
+    });
+    window.addEventListener("hashchange", function(){ stack = []; back.hidden = true; });
+  })();
+  if("scrollRestoration" in history) history.scrollRestoration = "manual";
+  show(location.hash.slice(1));
+})();
+</script>
+</body>
+</html>
